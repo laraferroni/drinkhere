@@ -1,0 +1,5 @@
+
+-@achievements.each do |item|
+	%a{:href=>achievement_path(item.id)}
+		=item.name
+	%p

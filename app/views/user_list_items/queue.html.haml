@@ -1,0 +1,54 @@
+/index
+.container
+	%h2
+		Awaiting Approval
+		%p
+		&nbsp;
+	-@queued_items.each do |item|
+		-if item.master_list_item.present?
+			.row.bottom-border
+				.col-md-2.left
+					=item.user.full_name
+				.col-md-3.left
+					=item.master_list_item.full_name
+				.col-md-2.left
+					=item.date_completed
+				.col-md-2
+					= form_for :id, :remote => true do |f|
+	     
+						= hidden_field_tag "user_list_item[id]", item.id
+						= hidden_field_tag "user_list_item[approval_status]", Enum::APPROVED
+
+						%button.btn.btn-default.complete_it
+							Approve
+						%button.btn.btn-default.reject_it
+							Reject
+
+:javascript
+
+	$(document).ready(function(){
+		$('.item').hover(
+			function(){
+				$(this).find(".item-buttons").fadeIn("fast");
+			},
+			function(){
+				$(this).find(".item-buttons").fadeOut("fast");
+			}
+
+		);  
+
+
+		$('.complete_it').on("click", function(){
+			alert($(this.form));
+
+			$(this.form).submit(function( event ) {
+
+				$(this).addClass("complete");
+				event.preventDefault();
+				
+			});
+
+		});
+
+
+	});

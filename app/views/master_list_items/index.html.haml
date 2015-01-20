@@ -1,0 +1,5 @@
+
+-@master_list_items.each do |item|
+	%a{:href=>edit_master_list_item_path(item.id)}
+		=item.full_name
+	%p

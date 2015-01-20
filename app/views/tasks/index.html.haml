@@ -1,0 +1,5 @@
+
+-@tasks.each do |item|
+	%a{:href=>task_path(item.id)}
+		=item.name
+	%p
