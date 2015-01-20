@@ -1,11 +1,11 @@
 %h2
 	=@achievement.name
 %p
-%ul.list-unstyled
+%ul.list-unstyled.fat-list
 	=@achievement.description.html_safe if @achievement.description.present?
 %h3
 	= "The Rules" if @achievement.rules.present? 
-%ul.list-unstyled
+%ul.list-unstyled.fat-list
 	=@achievement.rules.html_safe if @achievement.rules.present?
 
 -if current_user.nil? 
@@ -16,7 +16,7 @@
 	Sign Me Up
 -elsif !current_user.roles.first.taster
 	%button.btn.btn-primary 
-	Sign Me Up
+		Sign Me Up
 -else
 	You are currently working on this list.
 
@@ -26,8 +26,22 @@
 	%h3
 		The #{task.name} List
 	Taste #{task.total_items_needed}
-	%hr	
+	%hr
 
-	-task.master_list.master_list_items.each do |item|
-		=item.full_name
+
+	-if task.required_list_items.size > 0	
+		%h4
+			Taste each of these:
 		%p
+		-task.required_list_items.each do |item|
+			=item.full_name
+			%p
+
+	-if task.optional_list_items.size > 0
+		%h4
+			Taste any #{(task.total_items_needed - task.required_list_items.size)} of these:
+		%p
+		-task.optional_list_items.each do |item|
+			=item.full_name
+
+			%p

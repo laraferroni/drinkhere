@@ -21,4 +21,13 @@ class Task < ActiveRecord::Base
       field :number_of_days
     end
   end
+
+def required_list_items
+  self.master_list.master_list_items.where("task_id = ?", self.id)
+end
+
+def optional_list_items
+  self.master_list.master_list_items.where("task_id != ? OR task_id IS ?", self.id, nil)
+end
+
 end

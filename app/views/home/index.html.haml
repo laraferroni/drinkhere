@@ -61,7 +61,7 @@
 					-status = "complete"
 								
 				.item_wrap
-					.col-md-2.item{:style=>"color: #{item.task.achievement.html_color if item.task.present?};"}
+					.col-md-2.item
 
 						.row
 							.col-lg-12.center.item-image
@@ -83,21 +83,22 @@
 										%button.btn.btn-default.complete_it
 											I drank it
 
-						.row.item-info{:class=>"#{status}"}
-							.col-lg-12
-								.row
-									.col-xs-12
-										=item.full_name 
-										%p
-								.row.light-text		
-									.col-xs-6
-										=item.proof.to_int.to_s + "%" if item.proof.present?
-									.col-xs-6.right
-										-if @list.show_price
-											=number_to_currency(item.price.to_f) 
-								.row.light-text
-									.col-xs-12
-										=item.origin.name if item.origin.present?
+						%a{:href=>edit_master_list_item_path(item.id)}
+							.row.item-info{:class=>"#{status}", :style=>"color: #{item.task.achievement.html_color if item.task.present?} !important;"}
+								.col-lg-12
+									.row
+										.col-xs-12
+											=item.full_name 
+											%p
+									.row.light-text		
+										.col-xs-6
+											=item.proof.to_int.to_s + "%" if item.proof.present?
+										.col-xs-6.right
+											-if @list.show_price
+												=number_to_currency(item.price.to_f) 
+									.row.light-text
+										.col-xs-12
+											=item.origin.name if item.origin.present?
 
 
 :javascript
