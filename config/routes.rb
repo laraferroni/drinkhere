@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
+
+  admin_only = ->(request) { request.env['warden'].authenticate? and request.env['warden'].user.is_admin? }
+  
+
+
+
   get 'home/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -10,7 +16,18 @@ Rails.application.routes.draw do
   # root 'welcome#index'
   
   root to: "home#index"
+
+  get 'queue' => 'user_list_items#queue'
+  post 'queue' => 'user_list_items#update'
+  resources :user_list_items
   
+
+  resources :master_list_items
+  resources :tasks
+  resources :achievements
+  
+
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

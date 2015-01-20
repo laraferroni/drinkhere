@@ -11,7 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150114014018) do
+ActiveRecord::Schema.define(version: 20150120042317) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "accounts", force: true do |t|
+    t.string   "name"
+    t.string   "subdomain"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "achievements", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "icon_src"
+    t.string   "html_color"
+    t.integer  "location_id"
+    t.string   "icon_file_name"
+    t.string   "icon_content_type"
+    t.integer  "icon_file_size"
+    t.datetime "icon_updated_at"
+    t.integer  "account_id"
+    t.text     "description"
+    t.text     "rules"
+    t.text     "reward"
+  end
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -37,6 +64,21 @@ ActiveRecord::Schema.define(version: 20150114014018) do
     t.datetime "updated_at"
   end
 
+  create_table "item_types", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "account_id"
+  end
+
+  create_table "locations", force: true do |t|
+    t.string   "name"
+    t.string   "domain"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "account_id"
+  end
+
   create_table "master_list_items", force: true do |t|
     t.string   "name"
     t.text     "description"
@@ -53,6 +95,33 @@ ActiveRecord::Schema.define(version: 20150114014018) do
     t.string   "custom3"
     t.string   "custom4"
     t.string   "custom5"
+    t.string   "full_name"
+    t.integer  "master_list_id"
+    t.integer  "item_type_id"
+    t.date     "date_added"
+    t.integer  "task_id"
+    t.boolean  "out_of_stock"
+    t.boolean  "no_longer_produced"
+    t.boolean  "rare"
+    t.boolean  "new"
+    t.boolean  "free_to_sample"
+    t.decimal  "proof",              precision: 5, scale: 2
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.integer  "account_id"
+  end
+
+  create_table "master_lists", force: true do |t|
+    t.string   "name"
+    t.string   "itemname_label"
+    t.string   "origin_label"
+    t.integer  "location_id"
+    t.boolean  "show_price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "account_id"
   end
 
   create_table "origins", force: true do |t|
@@ -66,6 +135,26 @@ ActiveRecord::Schema.define(version: 20150114014018) do
     t.datetime "updated_at"
   end
 
+  create_table "roles", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "account_id"
+    t.boolean  "super_admin"
+    t.boolean  "list_manager"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tasks", force: true do |t|
+    t.integer  "achievement_id"
+    t.string   "name"
+    t.integer  "master_list_id"
+    t.integer  "total_items_needed"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "account_id"
+    t.integer  "number_of_days"
+  end
+
   create_table "user_list_items", force: true do |t|
     t.integer  "user_id"
     t.integer  "master_list_item_id"
@@ -75,6 +164,10 @@ ActiveRecord::Schema.define(version: 20150114014018) do
     t.text     "tasting_notes"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "rating"
+    t.integer  "master_list_id"
+    t.integer  "approval_status"
+    t.integer  "account_id"
   end
 
   create_table "users", force: true do |t|
@@ -90,6 +183,10 @@ ActiveRecord::Schema.define(version: 20150114014018) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "full_name"
+    t.integer  "account_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

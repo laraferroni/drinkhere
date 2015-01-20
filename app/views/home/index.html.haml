@@ -1,4 +1,130 @@
-%h1 Drink This!
+/index
+.container
+
+	.left
+		.row
+			.col-md-6
+			.col-md-6
+
+				%ul.nav.navbar-nav.navbar-right
+					%li.dropdown
+						%a.dropdown-toggle{:href=>"#", "data-toggle"=>"dropdown", "role"=>"button", "aria-expanded"=>"false"}
+							Bar
+							%span.caret
+						%ul.dropdown-menu{"role"=>"menu"}
+							-@bars.each do |bar|
+								%li
+									%a{:href=>"http://"+bar.subdomain + ".localhost.dev:3000"}
+										=bar.name
 
 
-	
+
+		.row	
+			.col-md-12
+				%h3.upper
+					%span
+
+						=@list.location.name+ ":" if @list.present?
+						=@list.name if @list.present?
+
+				%h6
+					.row
+
+					-@tasks.each do |task|
+						.col-md-3
+							%span
+								= task.try(:name)
+								= ":"
+
+								- if (task.total_items_needed - @userlist.size) < 1
+									Complete
+								-else
+
+									= task.total_items_needed - @userlist.size
+									of
+									= task.total_items_needed.to_s + " needed"
+
+				%p
+		.row
+			.col-sm-12
+				&nbsp;
+
+		.row
+			-@master_list.each do |item|
+				-user_list_item = item.user_list_items.where("user_id = ?", @user.id).first
+
+				-if user_list_item.nil?
+					- status = "need"
+				-elsif user_list_item.approval_status == Enum::PENDING
+					-status = "pending"
+				-elsif user_list_item.approval_status == Enum::APPROVED
+					-status = "complete"
+								
+				.item_wrap
+					.col-md-2.item{:style=>"color: #{item.task.achievement.html_color if item.task.present?};"}
+
+						.row
+							.col-lg-12.center.item-image
+								%img{:src=>item.photo.url(:medium), :style=>"padding: 5px;"}
+						.row.item-buttons
+							.col-lg-12
+								-if user_list_item.present?
+									Tasted on: 
+									=user_list_item.date_completed
+									-if user_list_item.approval_status == Enum::PENDING
+										%br
+										Pending Approval
+								-else
+									=form_for(UserListItem.new, remote: true) do |f|
+										= hidden_field_tag "user_list_item[master_list_item_id]", item.id
+										= hidden_field_tag "user_list_item[master_list_id]", item.master_list_id
+
+
+										%button.btn.btn-default.complete_it
+											I drank it
+
+						.row.item-info{:class=>"#{status}"}
+							.col-lg-12
+								.row
+									.col-xs-12
+										=item.full_name 
+										%p
+								.row.light-text		
+									.col-xs-6
+										=item.proof.to_int.to_s + "%" if item.proof.present?
+									.col-xs-6.right
+										-if @list.show_price
+											=number_to_currency(item.price.to_f) 
+								.row.light-text
+									.col-xs-12
+										=item.origin.name if item.origin.present?
+
+
+:javascript
+
+	$(document).ready(function(){
+		$('.item').hover(
+			function(){
+				$(this).find(".item-buttons").fadeIn("fast");
+			},
+			function(){
+				$(this).find(".item-buttons").fadeOut("fast");
+			}
+
+		);  
+
+
+		$('.complete_it').on("click", function(){
+			var itemButtons = $(this).parent().parent();
+			
+			$(this.form).submit(function( event ) {
+				$(this).parent().parent().parent().find(".item-info").addClass("pending");
+				$(this).parent().parent().parent().find(".item-buttons").html("Pending Bartender Approval");
+				event.preventDefault();
+				
+			});
+
+		});
+
+
+	});
