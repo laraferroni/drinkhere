@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150120051934) do
+ActiveRecord::Schema.define(version: 20150120233551) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,11 @@ ActiveRecord::Schema.define(version: 20150120051934) do
     t.text     "description"
     t.text     "rules"
     t.text     "reward"
+    t.string   "homepageimage_file_name"
+    t.string   "homepageimage_content_type"
+    t.integer  "homepageimage_file_size"
+    t.datetime "homepageimage_updated_at"
+    t.integer  "prereq_id"
   end
 
   create_table "active_admin_comments", force: true do |t|
@@ -142,7 +147,13 @@ ActiveRecord::Schema.define(version: 20150120051934) do
     t.boolean  "list_manager"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "taster"
+  end
+
+  create_table "settings", force: true do |t|
+    t.integer  "account_id"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "tasks", force: true do |t|
@@ -154,6 +165,15 @@ ActiveRecord::Schema.define(version: 20150120051934) do
     t.datetime "updated_at"
     t.integer  "account_id"
     t.integer  "number_of_days"
+  end
+
+  create_table "user_achievements", force: true do |t|
+    t.integer  "account_id"
+    t.integer  "user_id"
+    t.integer  "achievement_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "completed",      default: false
   end
 
   create_table "user_list_items", force: true do |t|

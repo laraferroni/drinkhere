@@ -23,11 +23,15 @@ class Task < ActiveRecord::Base
   end
 
 def required_list_items
-  self.master_list.master_list_items.where("task_id = ?", self.id)
+  self.master_list.master_list_items.where("task_id = ?", self.id).order("full_name ASC")
+end
+
+def required_list_ids
+  self.master_list.master_list_items.where("task_id = ?", self.id).pluck(:id)
 end
 
 def optional_list_items
-  self.master_list.master_list_items.where("task_id != ? OR task_id IS ?", self.id, nil)
+  self.master_list.master_list_items.where("task_id != ? OR task_id IS ?", self.id, nil).order("full_name ASC")
 end
 
 end

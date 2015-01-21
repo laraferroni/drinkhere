@@ -29,39 +29,55 @@ body{
   color: #aaa;
 }
 
-
-.complete{
-  background: #ddd;
-}
-
-.pending{
-  background: #ffffcc;
-}
 .frost{
   background: white;
   width: 100%;
 }
 
+.square{
+  border: 1px solid #aaa;
+  width: 400px;
+  margin: auto;
+}
+
+.square-60{
+  width: 60%;
+  margin: auto;
+}
+
+.inverse{
+  background-color: #333;
+  color: #aaa;
+}
 
 .fat-list li{
 
-    padding: 20px;
+    padding: 10px;
 }
 
 .bottom-border{
   border-bottom: 1px solid #ccc;
 }
 
-.item{
-  border: 1px solid #eee;
-  height: 250px;
+
+.border-1px{
+  border: 1px solid #aaa;
 }
 
+.item{
+  border: 1px solid #eee;
+  height: 300px;
+}
 
+.item-image{
+  overflow:hidden;
+  max-height: 200px;
+  min-height: 200px;
+  padding: 0px;
+}
 .item-image img{
-  height: 150px;
-
-  .z-index:0;
+  z-index:0;
+  width: 100%;
 }
 
 .item-buttons{
@@ -93,6 +109,13 @@ body{
   
 }
 
+.complete{
+  background: #ddd;
+}
+
+.pending{
+  background: #ffffcc;
+}
 
 
 .bg-image{
@@ -117,13 +140,40 @@ body{
   }
 }
 
-@media only screen and (max-width: 1170px){
-
+@media only screen and (max-width: 991px){
 
   body{
-    font-size: 1.8em;
+    font-size: 1.6em;
   }
   .bigonly {
     display: none;
   }
+
+  .item{
+    height: 100px;
+  }
+
+
+  .item-buttons{
+    bottom: 0px;
+    width: 100%;
+    height: 50px !important;
+  }
+  .item-info{
+    height: 100px;
+    width: 100%;
+  }
+
+  .item-image{
+    overflow:hidden;
+    max-height: 95px;
+    min-height: 95px;
+    padding: 0px;
+  }
+  .item-image img{
+    z-index:0;
+    width: 95px;
+  }
+
+
 }

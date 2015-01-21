@@ -20,6 +20,7 @@ class ApplicationController < ActionController::Base
       else
         @user_achievements = []
       end
+
     end
 
     def set_bars

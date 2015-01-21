@@ -1,5 +1,7 @@
 class UserListItemsController < ApplicationController
 
+  before_filter :authenticate_user!,:only => [:index, :show, :new, :edit, :update, :destroy, :queue]
+
 	def index
 	end
 

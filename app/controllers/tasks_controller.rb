@@ -1,5 +1,7 @@
 class TasksController < ApplicationController
 
+  before_filter :authenticate_user!,:only => [:index, :show, :new, :edit, :update, :destroy]
+
 	def index
 		@tasks = Task.all
 	end

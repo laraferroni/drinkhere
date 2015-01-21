@@ -1,51 +1,68 @@
 <!DOCTYPE html>
 %html
 %head
+  = yield :head_start
+
+  %meta{:charset=>"utf-8"}
+  %meta{:name=>"viewport", :content=>"width=device-width, initial-scale=1.0, user-scalable=no"}
+
   %title Drink Here
-  = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-  = stylesheet_link_tag "//fonts.googleapis.com/css?family=Open+Sans", media: "all"
-  = javascript_include_tag 'application', 'data-turbolinks-track' => true
+  = favicon_link_tag 'favicon.ico' 
+
   = csrf_meta_tags
-  
+
+
+  = stylesheet_link_tag "application", media: "all"
+  = javascript_include_tag "application"
+   
+  = stylesheet_link_tag "//fonts.googleapis.com/css?family=Open+Sans", media: "all"
+
+  = yield :head_end
+    
+
+
+
 %body.frost
 
-%nav.navbar.navbar-default
-  .container-fluid
-    .navbar-header
-      %button.navbar-toggle.collapsed{"data-toggle"=>"collapse", "data-target"=>"#dh-menu"}
-        %span.sr-only Toggle navigation
-        %span.icon-bar
-        %span.icon-bar
-        %span.icon-bar
-      -if current_user  
-        %a.navbar-brand{:href=>"#"}
+  %nav.navbar.navbar-default
+    .container-fluid
+      .navbar-header
+        %button.navbar-toggle.collapsed{"data-toggle"=>"collapse", "data-target"=>"#dh-menu"}
+          %span.sr-only Toggle navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        %a.navbar-brand{:href=>"/"}
           %span
             %img{:src=>asset_url("drinkhere.png"), :height=>"35px;"}
             Drink Here
-    .collapse.navbar-collapse#dh-menu
-      %ul.nav.navbar-nav.navbar-right
-        -if current_user
-          -if current_user.is_approver
+      .collapse.navbar-collapse#dh-menu
+        %ul.nav.navbar-nav.navbar-right
+          -if current_user
+            -if current_user.is_approver
+              %li
+                =link_to "Pending ", "/queue"
             %li
-              =link_to "Pending ", "/queue"
-          %li
-            =link_to "Hi, "+current_user.first_name, destroy_user_session_path, :method => :delete
-          
-            -@user_achievements.each do |a|
-              %img{:src=>a.icon.url(:thumb), :height=>"20px;", :title=>a.name}
-        -else
-          %li
-            %a{:href=>"/users/sign_in"}
-              Log In
-          %li
-            %a{:href=>"#"}
-              Join
+              =link_to "Hi, "+current_user.first_name, destroy_user_session_path, :method => :delete
+            
+              -@user_achievements.each do |a|
+                %img{:src=>a.icon.url(:thumb), :height=>"20px;", :title=>a.name}
+          -else
+            %li
+              %a{:href=>"/users/sign_in"}
+                Log In
+            %li
+              %a{:href=>"/users/sign_up"}
+                Join
 
-.center{:style=>"margin: auto; width: 100%;"}
-    
-  = yield
+  .center{:style=>"margin: auto; width: 100%;"}
+      
+    = yield
 
-%p.notice
-  =notice
-%p.alert
-  =alert
+  %p.notice
+    =notice
+  %p.alert
+    =alert
+
+    = render "footer"
+

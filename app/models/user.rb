@@ -2,11 +2,13 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
-  devise :database_authenticatable, 
+  devise :database_authenticatable,  :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-
+  
+  has_many :user_achievements
   has_many :user_list_items
   has_many :master_list_items, through: :user_list_items
+
 
   has_many :roles
 
@@ -66,6 +68,35 @@ class User < ActiveRecord::Base
       end
     end
     return a_level
+  end
+
+
+  def working_on(achievement_id)
+      self.user_achievements.where("achievement_id = ?", achievement_id).first
+      
+  end
+
+  def prereqs_complete(achievement_id)
+    achievement = Achievement.find(achievement_id)
+    if !achievement.prereq.nil?
+
+      ua = self.user_achievements.where("achievement_id = ?", achievement.prereq_id).first
+
+      
+      return (ua.present? && ua.completed)
+    else
+      return true
+    end
+  end
+
+  def required_status(task_id)
+    if task_id.present?
+      task = Task.find(task_id)
+      requireds =task.required_list_ids
+      completeds = UserListItem.where("user_id = ? AND master_list_id = ?", self.id, task.master_list_id).pluck(:master_list_item_id)
+      done = requireds & completeds
+      return done
+    end
   end
 
 end

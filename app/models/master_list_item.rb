@@ -31,6 +31,7 @@ class MasterListItem < ActiveRecord::Base
       field :task
       field :brand
       field :name
+      field :photo
       field :available
       field :origin
       field :price

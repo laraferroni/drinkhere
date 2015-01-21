@@ -1,5 +1,28 @@
-
--@achievements.each do |item|
-	%a{:href=>achievement_path(item.id)}
-		=item.name
-	%p
+.container
+	%h2	
+		%img{:src=>asset_url("drinkhere.png"), :height=>"75px;"}
+	%h2
+		=Account.first.name + "'s Lists"
+	%p.bottom-border
+	.square-60
+		-@achievements.each do |item|
+			%h5
+				.row.left
+					.col-sm-4
+						%a{:href=>achievement_path(item.id)}
+							=item.name
+					.col-sm-5		
+						-if item.prereq.present?
+							Requires: 
+							%a{:href=>achievement_path(item.prereq)}
+								=item.prereq.name
+					.col-sm-2.right
+						-if current_user.nil? 
+							%a.btn.btn-primary{:href=>achievement_path(item.id)}
+								Learn More
+						-elsif !current_user.working_on(item.id)
+							%a.btn.btn-primary{:href=>achievement_path(item.id)}
+								Learn More
+						-else
+							%a.btn.btn-primary{:href=>"/index/"+item.id.to_s}
+								In Progress

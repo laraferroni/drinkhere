@@ -1,5 +1,9 @@
 class AchievementsController < ApplicationController
 
+
+  before_filter :authenticate_user!,:only => [:new, :edit, :update, :destroy, :sign_up]
+
+
 	def index
 		@achievements = Achievement.all
 	end
@@ -39,6 +43,19 @@ class AchievementsController < ApplicationController
 	def destroy
 	end
 
+
+	def sign_up
+		list = UserAchievement.where(achievement_id: params[:id]).first_or_create
+		list.user_id = current_user.id
+		respond_to do |format|
+	    if list.save
+	      format.html { redirect_to ("/index/"+list.achievement.tasks.first.id.to_s), notice: 'Achievement was successfully created.' }
+	      format.json { render action: 'index', status: :created, location: list }
+	    else
+	      render json: {achievement_params: list.errors}, status: 422
+	    end
+	   end
+	end
 
 def achievement_params
     return nil if params[:achievement].blank?

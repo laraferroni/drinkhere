@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  mount RailsAdminImport::Engine => '/rails_admin_import', :as => 'rails_admin_import'
   devise_for :users
 
   admin_only = ->(request) { request.env['warden'].authenticate? and request.env['warden'].user.is_admin? }
@@ -17,6 +18,7 @@ Rails.application.routes.draw do
   
   root to: "home#index"
 
+  get 'index/:id' => 'home#index'
   get 'queue' => 'user_list_items#queue'
   post 'queue' => 'user_list_items#update'
   resources :user_list_items
@@ -24,6 +26,8 @@ Rails.application.routes.draw do
 
   resources :master_list_items
   resources :tasks
+
+  get 'achievements/:id/sign_up' => 'achievements#sign_up'
   resources :achievements
   
 

@@ -53,11 +53,16 @@ class UserListItem < ActiveRecord::Base
 
 
   before_save :set_master_list_id
+  after_save :set_user_achievement_status
 
   def set_master_list_id
     if self.master_list_item.present?
       self.master_list_id = self.master_list_item.master_list_id
     end
+  end
+
+  def set_user_achievement_status
+    
   end
 
 

@@ -1,32 +1,42 @@
 .center
 	%h1	
-		DRINK
 		%img{:src=>asset_url("drinkhere.png"), :height=>"75px;"}
-		HERE
+	%h6
+		drink cards, simplified
 
-	.home_gallary{:style=>"height: 530px; overflow: hidden; margin-bottom: -16px;"}
-		.imageGallary.scrollable{:style=>"height: 530px; width: 100%; min-height: 326px; max-height: 526px; overflow-y: hidden; overflow-x: auto;"}
-			.imageGalleryInner{:style=>"height: height: 530px;  min-height: 300px; max-height:500px;overflow:hidden; width: #{3*675}px;"}
-
-				%a{:href=>"#", :style=>"float: left;display: block;position: relative;color: #FFF;overflow: hidden;"}
-					%img{:src=>asset_url("DonJulio_FarmToShaker-1121.jpg"), :style=>"display: inline; height: 450px; width: auto;"}
-					%span.overlay{:style=>"position: absolute; bottom: 0; left: 0; display: block; width: 100%; background: rgba(0,0,0,.5);"}
-						.overlay_inner{:style=>"display:block;padding: 9px 15px 10px 15px;"}
-							%span.articleContent.clearfix{:style=>"display: block; height: 91px; padding-top: 14px;"}
-								%h3.upper Hale Pele Fire Drinkers
-
-				%a{:href=>"#", :style=>"float: left;display: block;position: relative;color: #FFF;overflow: hidden;"}
-					%img{:src=>asset_url("Vessel-116.jpg"), :style=>"display: inline; height: 450px; width: auto;"}
-					%span.overlay{:style=>"position: absolute; bottom: 0; left: 0; display: block; width: 100%; background: rgba(0,0,0,.5);"}
-						.overlay_inner{:style=>"display:block;padding: 9px 15px 10px 15px;"}
-							%span.articleContent.clearfix{:style=>"display: block; height: 91px; padding-top: 14px;"}
-								%h3.upper Hale Pele Water Bearers
+	-if @site_achievements.size	> 1
+	
+		.home_gallary{:style=>"height: 530px; overflow: hidden; margin-bottom: -16px;"}
+			.imageGallary.scrollable{:style=>"height: 530px; width: 100%; min-height: 326px; max-height: 526px; overflow-y: hidden; overflow-x: auto;"}
 
 
+				.imageGalleryInner{:style=>"height: 530px;  min-height: 300px; max-height:500px;overflow:hidden; width: #{@site_achievements.size*675}px;"}
 
-				%a{:href=>"#", :style=>"float: left;display: block;position: relative;color: #FFF;overflow: hidden;"}
-					%img{:src=>asset_url("Imbibe Murray-92.jpg"), :style=>"display: inline; height: 450px; width: auto;"}
-					%span.overlay{:style=>"position: absolute; bottom: 0; left: 0; display: block; width: 100%; background: rgba(0,0,0,.5);"}
-						.overlay_inner{:style=>"display:block;padding: 9px 15px 10px 15px;"}
-							%span.articleContent.clearfix{:style=>"display: block; height: 91px; padding-top: 14px;"}
-								%h3.upper Brooklyn Park Bourbon Club
+					-@site_achievements.each do  |achievement|
+
+						%a{:href=>achievement_path(achievement.id), :style=>"float: left;display: block;position: relative;color: #FFF;overflow: hidden;"}
+							%img{:src=>achievement.homepageimage.url(:large), :style=>"display: inline; height: 450px; width: auto;"}
+							%span.overlay{:style=>"position: absolute; bottom: 0; left: 0; display: block; width: 100%; background: rgba(0,0,0,.5);"}
+								.overlay_inner{:style=>"display:block;padding: 9px 15px 10px 15px;"}
+									%span.articleContent.clearfix{:style=>"display: block; height: 91px; padding-top: 14px;"}
+										%h3.upper 
+											%span
+												=achievement.account.name
+												=achievement.name
+
+	-else
+		-achievement = @site_achievements.first
+		.home_gallary{:style=>"height: 530px; overflow: hidden; margin-bottom: -16px;width: 100%;"}
+
+			-@site_achievements.each do  |achievement|
+				%a{:href=>achievement_path(achievement.id), :style=>"float: left;display: block;position: relative;color: #FFF;overflow: hidden;"}
+					.wrap{:style=>"height: 530px;"}
+						%img{:src=>achievement.homepageimage.url(:large), :style=>"display: inline;  width: 100%;"}
+						%span.overlay{:style=>"position: absolute; bottom: 0; left: 0; display: block; width: 100%; background: rgba(0,0,0,.5);"}
+							.overlay_inner{:style=>"display:block;padding: 9px 15px 10px 15px;"}
+								%span.articleContent.clearfix{:style=>"display: block; height: 91px; padding-top: 14px;"}
+									%h3.upper 
+										%span
+											=achievement.account.name
+											=achievement.name
+								

@@ -6,100 +6,182 @@
 			.col-md-6
 			.col-md-6
 
-				%ul.nav.navbar-nav.navbar-right
-					%li.dropdown
-						%a.dropdown-toggle{:href=>"#", "data-toggle"=>"dropdown", "role"=>"button", "aria-expanded"=>"false"}
-							Bar
-							%span.caret
-						%ul.dropdown-menu{"role"=>"menu"}
-							-@bars.each do |bar|
+				-if @site_achievements.size > 2
+					%ul.nav.navbar-nav.navbar-right
+						%li.dropdown
+							%a.dropdown-toggle{:href=>"#", "data-toggle"=>"dropdown", "role"=>"button", "aria-expanded"=>"false"}
+								My Lists
+								%span.caret
+							%ul.dropdown-menu{"role"=>"menu"}
+								-current_user.user_achievements.each do |mylist|
+									%li
+										%a{:href=>"http://"+mylist.achievement.account.subdomain + ".localhost.dev:3000/index/"+mylist.achievement.tasks.first.id.to_s}
+											=mylist.achievement.name
+								%li.divider
 								%li
-									%a{:href=>"http://"+bar.subdomain + ".localhost.dev:3000"}
-										=bar.name
+									%a{:href=>achievements_path}
+										All Lists
 
 
 
 		.row	
-			.col-md-12
+			.col-md-8
 				%h3.upper
 					%span
 
-						=@list.location.name+ ":" if @list.present?
+						=@list.location.name+ " :" if @list.present?
 						=@list.name if @list.present?
+						=": " + @task.name if @task.present?
 
-				%h6
-					.row
 
-					-@tasks.each do |task|
-						.col-md-3
-							%span
-								= task.try(:name)
-								= ":"
 
-								- if (task.total_items_needed - @userlist.size) < 1
-									Complete
-								-else
+			.col-md-4.right
+				%h5.upper
+					%span
+						- if (@task.total_items_needed - @userlist.size) < 1
+							Complete
+						-else
 
-									= task.total_items_needed - @userlist.size
-									of
-									= task.total_items_needed.to_s + " needed"
-
-				%p
+							= @task.total_items_needed - @userlist.size
+							of
+							= @task.total_items_needed.to_s + " needed"
+						-required_complete = current_user.required_status(@task.id).size
+					%p
+					-if @task.achievement.prereq.present?
+						Requires: 
+						%a{:href=>"index/"+@task.achievement.prereq_id.to_s}
+							=@task.achievement.prereq.name
+			
 		.row
 			.col-sm-12
 				&nbsp;
+		-if @task.required_list_items.size > 0
+			.row.inverse
+				.col-md-8
+					%h4.upper
+						Taste each of these
+				.col-md-4.right
+					%h4.upper
+						= required_complete
+						Complete
 
-		.row
-			-@master_list.each do |item|
-				-user_list_item = item.user_list_items.where("user_id = ?", @user.id).first
+			.row
+				-@task.required_list_items.each do |item|
+					-user_list_item = item.user_list_items.where("user_id = ?", @user.id).first
 
-				-if user_list_item.nil?
-					- status = "need"
-				-elsif user_list_item.approval_status == Enum::PENDING
-					-status = "pending"
-				-elsif user_list_item.approval_status == Enum::APPROVED
-					-status = "complete"
-								
-				.item_wrap
-					.col-md-2.item
+					-if user_list_item.nil?
+						- status = "need"
+					-elsif user_list_item.approval_status == Enum::PENDING
+						-status = "pending"
+					-elsif user_list_item.approval_status == Enum::APPROVED
+						-status = "complete"
+									
+					.item_wrap
+						.col-md-2.item
 
-						.row
-							.col-lg-12.center.item-image
-								%img{:src=>item.photo.url(:medium), :style=>"padding: 5px;"}
-						.row.item-buttons
-							.col-lg-12
-								-if user_list_item.present?
-									Tasted on: 
-									=user_list_item.date_completed
-									-if user_list_item.approval_status == Enum::PENDING
-										%br
-										Pending Approval
-								-else
-									=form_for(UserListItem.new, remote: true) do |f|
-										= hidden_field_tag "user_list_item[master_list_item_id]", item.id
-										= hidden_field_tag "user_list_item[master_list_id]", item.master_list_id
-
-
-										%button.btn.btn-default.complete_it
-											I drank it
-
-						%a{:href=>edit_master_list_item_path(item.id)}
-							.row.item-info{:class=>"#{status}", :style=>"color: #{item.task.achievement.html_color if item.task.present?} !important;"}
+							.row.visible-lg-inline-block.visible-md-inline-block.visible-xl-inline-block
+								.col-lg-12.center.item-image
+									%img{:src=>item.photo.url(:medium), :style=>"padding: 5px;"}
+							.row.item-buttons
 								.col-lg-12
-									.row
-										.col-xs-12
-											=item.full_name 
-											%p
-									.row.light-text		
-										.col-xs-6
-											=item.proof.to_int.to_s + "%" if item.proof.present?
-										.col-xs-6.right
-											-if @list.show_price
-												=number_to_currency(item.price.to_f) 
-									.row.light-text
-										.col-xs-12
-											=item.origin.name if item.origin.present?
+									-if user_list_item.present?
+										Tasted on: 
+										=user_list_item.date_completed
+										-if user_list_item.approval_status == Enum::PENDING
+											%br
+											Pending Approval
+									-else
+										=form_for(UserListItem.new, remote: true) do |f|
+											= hidden_field_tag "user_list_item[master_list_item_id]", item.id
+											= hidden_field_tag "user_list_item[master_list_id]", item.master_list_id
 
+
+											%button.btn.btn-default.complete_it
+												I drank it
+
+							%a{:href=>edit_master_list_item_path(item.id)}
+								.row.item-info{:class=>"#{status}", :style=>"color: #{item.task.achievement.html_color if item.task.present?} !important;"}
+									.col-lg-12.col-xs-8
+										.row
+											.col-xs-12
+												=item.full_name 
+												%p
+										.row.light-text		
+											.col-xs-6
+												=item.proof.to_int.to_s + " Proof" if item.proof.present?
+											.col-xs-6.right
+												-if @list.show_price
+													=number_to_currency(item.price.to_f) 
+										.row.light-text
+											.col-xs-12
+												=item.origin.name if item.origin.present?
+									.col-xs-4.visible-xs-inline-block.visible-sm-inline-block.right.item-image
+										%img.border-1px{:src=>item.photo.url(:thumb)}
+
+
+		-if @task.optional_list_items.size > 0
+
+			.row.inverse
+				.col-md-8
+					%h4.upper
+						Taste any #{(@task.total_items_needed - @task.required_list_items.size)} of these
+
+				.col-md-4.right
+					%h4.upper
+						=@userlist.size - required_complete
+						Complete
+			.row
+				-@task.optional_list_items.each do |item|
+					-user_list_item = item.user_list_items.where("user_id = ?", @user.id).first
+
+					-if user_list_item.nil?
+						- status = "need"
+					-elsif user_list_item.approval_status == Enum::PENDING
+						-status = "pending"
+					-elsif user_list_item.approval_status == Enum::APPROVED
+						-status = "complete"
+									
+					.item_wrap
+						.col-md-2.item
+
+							.row.visible-lg-inline-block.visible-md-inline-block.visible-xl-inline-block
+								.col-lg-12.center.item-image
+									%img{:src=>item.photo.url(:medium), :style=>"padding: 5px;"}
+							.row.item-buttons
+								.col-lg-12
+									-if user_list_item.present?
+										Tasted on: 
+										=user_list_item.date_completed
+										-if user_list_item.approval_status == Enum::PENDING
+											%br
+											Pending Approval
+									-else
+										=form_for(UserListItem.new, remote: true) do |f|
+											= hidden_field_tag "user_list_item[master_list_item_id]", item.id
+											= hidden_field_tag "user_list_item[master_list_id]", item.master_list_id
+
+
+											%button.btn.btn-default.complete_it
+												I drank it
+
+							%a{:href=>edit_master_list_item_path(item.id)}
+								.row.item-info{:class=>"#{status}", :style=>"color: #{item.task.achievement.html_color if item.task.present?} !important;"}
+									.col-lg-12.col-xs-8
+										.row
+											.col-xs-12
+												=item.full_name 
+												%p
+										.row.light-text		
+											.col-xs-6
+												=item.proof.to_int.to_s + " Proof" if item.proof.present?
+											.col-xs-6.right
+												-if @list.show_price
+													=number_to_currency(item.price.to_f) 
+										.row.light-text
+											.col-xs-12
+												=item.origin.name if item.origin.present?
+									.col-xs-4.visible-xs-inline-block.visible-sm-inline-block.right.item-image
+										%img.border-1px{:src=>item.photo.url(:thumb)}
 
 :javascript
 

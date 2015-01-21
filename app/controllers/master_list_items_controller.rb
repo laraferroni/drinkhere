@@ -1,5 +1,8 @@
 class MasterListItemsController < ApplicationController
 
+  before_filter :authenticate_user!,:only => [:index, :show, :new, :edit, :update, :destroy]
+
+
 	def index
 		@master_list_items = MasterListItem.all
 	end
