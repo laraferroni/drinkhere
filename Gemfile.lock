@@ -151,6 +151,8 @@ GEM
       mime-types
     pg (0.17.1)
     polyglot (0.3.5)
+    puma (2.11.0)
+      rack (>= 1.1, < 2.0)
     rack (1.5.2)
     rack-pjax (0.8.0)
       nokogiri (~> 1.5)
@@ -240,6 +242,7 @@ DEPENDENCIES
   jquery-ui-rails
   paperclip (= 3.4.2)
   pg
+  puma
   rails (= 4.1.1)
   rails_admin!
   rails_admin_import
