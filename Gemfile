@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -11,7 +11,7 @@ gem 'dotenv-rails'
 group :admin, :default do
   gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
   gem "rails_admin_import"
-	
+
 end
 
 # Use SCSS for stylesheets
@@ -83,4 +83,3 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
