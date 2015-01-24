@@ -1,11 +1,13 @@
 source 'https://rubygems.org'
 
-
+ruby '2.0.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
 # Use mysql as the database for Active Record
 gem 'pg'
 gem 'dotenv-rails'
+gem 'rails_12factor'
+gem 'rails_stdout_logging' 
 
 
 group :admin, :default do
