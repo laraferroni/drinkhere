@@ -45,7 +45,7 @@ class UserListItemsController < ApplicationController
 		if current_user.is_approver
 			@queued_items = UserListItem.where(approval_status: Enum::PENDING)
 		else
-			redirect_to main_app.root_path
+			redirect_to main_app.root_pa th
 		end
 	end
 

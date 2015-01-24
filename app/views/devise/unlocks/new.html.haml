@@ -1,0 +1,27 @@
+.container
+
+  .square.border-1
+    %h1 
+      %img{:src=>@settings.logo.url(:medium), :height=>"75px;"}
+    %hr
+    %h3.upper
+      Resend unlock instructions
+    .div{:style=>"padding: 20px;"}
+
+      =form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f|
+
+        .form-control
+          = f.label :email, :class=>"control-label"
+          = f.email_field :email, autofocus: true, :class=>"form-control"
+
+        .row
+          .col-sm-8.left
+
+          .col-sm-4.right
+            .actions
+              =f.submit "Resend unlock instructions", :class=> "btn btn-default"
+
+
+    %p
+    = render "devise/shared/links" 
+    %p

@@ -73,7 +73,6 @@ class User < ActiveRecord::Base
 
   def working_on(achievement_id)
       self.user_achievements.where("achievement_id = ?", achievement_id).first
-      
   end
 
   def prereqs_complete(achievement_id)

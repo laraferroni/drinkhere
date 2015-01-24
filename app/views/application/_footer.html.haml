@@ -1,0 +1,40 @@
+.footer
+
+  %nav.navbar.navbar-default.upper
+    .container-fluid
+      .navbar-header
+        %button.navbar-toggle.collapsed{"data-toggle"=>"collapse", "data-target"=>"#footer-menu"}
+          %span.sr-only Toggle navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+      .collapse.navbar-collapse#footer-menu
+        %ul.nav.navbar-nav
+          %li
+            %a{:href=> "mailto:lara@laraferroni.com", :target=>"_blank"} Support
+          %li
+            %a{:href=>"about"} About
+          %li             
+            %a.bigonly{:href=>"#"} Terms of Use
+          %li              
+            %a.bigonly{:href=>"#"} Privacy Policy
+        %ul.nav.navbar-nav.navbar-right            
+          %li              
+            %a.bigonly{:href => ""} 
+              %icon.fa.fa-facebook-square.fa-2x.fa-fw{:title => "Follow us on Facebook"}
+          %li                
+            %a.bigonly{:href => ""}
+              %icon.fa.fa-twitter-square.fa-2x.fa-fw{:title => "Follow us on Twitter"}
+          %li                
+            %a.bigonly{:href => ""}
+              %icon.fa.fa-google-plus-square.fa-2x.fa-fw{:title => "Follow us on Google +"}
+
+:javascript
+  $(document).on 'click.alert.data-api', '[data-dismiss="alert"]', (e) ->
+    e.stopPropagation()
+    off
+
+  $(document).on 'touchstart click', ".bootstrap-growl", (e) ->
+    e.stopPropagation()
+    $('[data-dismiss="alert"]', @).click()
+    off

@@ -1,8 +1,8 @@
 .center
 	%h1	
-		%img{:src=>asset_url("drinkhere.png"), :height=>"75px;"}
-	%h6
-		drink cards, simplified
+		%img{:src=>@settings.logo.url(:medium), :height=>"75px;"}
+	%h5.upper
+		drink here
 
 	-if @site_achievements.size	> 1
 	

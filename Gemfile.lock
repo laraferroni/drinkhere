@@ -97,6 +97,9 @@ GEM
     geokit-rails (2.0.1)
       geokit (~> 1.5)
       rails (>= 3.0)
+    growlyflash (0.5.0)
+      coffee-rails (>= 3.2.1)
+      railties (>= 3.2, < 5.0)
     haml (4.0.6)
       tilt
     haml-rails (0.7.0)
@@ -229,6 +232,7 @@ DEPENDENCIES
   dotenv-rails
   font-awesome-sass (~> 4.2.0)
   geokit-rails
+  growlyflash (~> 0.5.0)
   haml-rails
   jbuilder (~> 2.0)
   jquery-fileupload-rails

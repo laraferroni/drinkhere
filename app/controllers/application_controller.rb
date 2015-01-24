@@ -3,13 +3,13 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   #protect_from_forgery with: :exception
   protect_from_forgery # Same as above
-
-  before_filter :get_subdomain, :set_achievements, :set_bars
   set_current_tenant_by_subdomain(:account, :subdomain)
   
-
-
-	private
+  before_filter :get_subdomain, :set_achievements, :set_account
+  
+  
+	
+  private
 	  def get_subdomain
 	    return request.subdomain
 	  end
@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
 
     end
 
-    def set_bars
-      @bars = Account.all
+    def set_account
+      @settings = Setting.first
     end
 end

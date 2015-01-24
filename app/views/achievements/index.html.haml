@@ -1,22 +1,26 @@
 .container
 	%h2	
-		%img{:src=>asset_url("drinkhere.png"), :height=>"75px;"}
+		%img{:src=>@settings.logo.url(:medium), :height=>"100px;"}
 	%h2
-		=Account.first.name + "'s Lists"
+		=@settings.account.name + "'s Lists"
 	%p.bottom-border
 	.square-60
 		-@achievements.each do |item|
-			%h5
-				.row.left
-					.col-sm-4
+			%h4
+				.row.left.bottom-border{:style=>"height: 100px;"}
+
+					.col-sm-1
+						%a{:href=>achievement_path(item.id)}
+							%img{:src=>item.icon.url(:thumb), :height=>"50px;"}
+					.col-sm-7
 						%a{:href=>achievement_path(item.id)}
 							=item.name
-					.col-sm-5		
+						%p
 						-if item.prereq.present?
 							Requires: 
 							%a{:href=>achievement_path(item.prereq)}
 								=item.prereq.name
-					.col-sm-2.right
+					.col-sm-3.right
 						-if current_user.nil? 
 							%a.btn.btn-primary{:href=>achievement_path(item.id)}
 								Learn More

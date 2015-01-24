@@ -5,6 +5,7 @@ class UserListItem < ActiveRecord::Base
 	belongs_to :master_list_item
 	belongs_to :user
   belongs_to :master_list
+  belongs_to :approved_by, class_name: "User", foreign_key: 'approved_by_id'
 
 
 	rails_admin do 
@@ -27,7 +28,7 @@ class UserListItem < ActiveRecord::Base
       field :completed
       field :date_completed
       field :approval_status
-
+      field :approved_by
     end
   end
 
@@ -35,7 +36,9 @@ class UserListItem < ActiveRecord::Base
     :master_list_id,
     :master_list_item_id,
     :id,
-    :approval_status
+    :approval_status,
+    :approved_by_id
+
     ]
 
 

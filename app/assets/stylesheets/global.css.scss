@@ -4,9 +4,18 @@
 
 
 body{
-  font-family: 'Open Sans', sans-serif !important;
+  font-family: 'Archivo Narrow', sans-serif !important;
   font-size: 1.2em;
   color: #666;
+}
+
+h2{
+  font-family: 'Roboto Slab', sans-serif !important;
+  
+}
+
+h3{
+  font-family: 'Roboto Slab', sans-serif !important;
 }
 
 .upper{
@@ -38,11 +47,16 @@ body{
   border: 1px solid #aaa;
   width: 400px;
   margin: auto;
+  margin-bottom: 20px;
 }
 
 .square-60{
   width: 60%;
   margin: auto;
+}
+
+.field{
+  font-size: 1.2em;
 }
 
 .inverse{
@@ -174,6 +188,14 @@ body{
     z-index:0;
     width: 95px;
   }
+
+  .square{
+    border: 1px solid #aaa;
+    width: 300px;
+    margin: auto;
+    margin-bottom: 20px;
+  }
+
 
 
 }

@@ -1,32 +1,43 @@
 .container
+	%h2	
+		%img{:src=>@settings.logo.url(:medium), :height=>"100px;"}
 	.square-60.border-1
 		%h2
+			%img{:src=>@achievement.icon.url(:medium), :height=>"75px;"}
 			=@achievement.name
-		%p
-		%ul.list-unstyled.fat-list.left
-			=@achievement.description.html_safe if @achievement.description.present?
-		%h3
-			= "The Rules" if @achievement.rules.present? 
-		%ul.list-unstyled.fat-list.left
-			=@achievement.rules.html_safe if @achievement.rules.present?
+		%hr
+		.row
+			.col-sm-6
+				%h3
+					About the List
+				%ul.list-unstyled.fat-list.left
+					=@achievement.description.html_safe if @achievement.description.present?
 
-		-if current_user.nil? 
-			%a.btn.btn-primary{:href=>"/achievements/"+@achievement.id.to_s+"/sign_up"}  
-				Sign Me Up
-		-elsif !current_user.working_on(@achievement.id) && current_user.prereqs_complete(@achievement.id)
-			%a.btn.btn-primary{:href=>"/achievements/"+@achievement.id.to_s+"/sign_up"} 
-				Sign Me Up
-		-elsif !current_user.prereqs_complete(@achievement.id)
-			%H3
-				First, finish this list:
-				%a{:href=>achievement_path(@achievement.prereq)}
-					=@achievement.prereq.name
-		-else
-			%h3
-				%a{:href=>"/index/"+@achievement.id.to_s+"/"}
-					You are currently working on this list
+				-if current_user.nil? 
+					%a.btn.btn-primary{:href=>"/achievements/"+@achievement.id.to_s+"/sign_up"}  
+						Sign Me Up
+				-elsif !current_user.working_on(@achievement.id) && current_user.prereqs_complete(@achievement.id)
+					%a.btn.btn-primary{:href=>"/achievements/"+@achievement.id.to_s+"/sign_up"} 
+						Sign Me Up
+				-elsif !current_user.prereqs_complete(@achievement.id)
+					%h4
+						First, finish this list:
+						%p
+						%a.btn.btn-primary{:href=>achievement_path(@achievement.prereq)}
+							=@achievement.prereq.name
+				-else
+					%a.btn.btn-primary{:href=>"/index/"+@achievement.id.to_s+"/"}
+						You are currently working on this list
+
+			.col-sm-6		
+				%h3
+					= "The Rules" 
+				%ul.list-unstyled.fat-list.left
+					=@achievement.rules.html_safe if @achievement.rules.present?
 
 
+
+	%hr
 
 	-@achievement.tasks.each do |task|
 		%h3
@@ -37,7 +48,7 @@
 		-if task.required_list_items.size > 0	
 			.row.inverse
 				.col-md-12
-					%h3.upper
+					%h4
 						Taste each of these:
 			.row
 				.col-md-12
@@ -55,7 +66,7 @@
 		-if task.optional_list_items.size > 0
 			.row.inverse
 				.col-md-12
-					%h3.upper
+					%h4
 						Taste any #{(task.total_items_needed - task.required_list_items.size)} of these:
 			.row
 				.col-md-12
