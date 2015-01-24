@@ -22,7 +22,7 @@
 /tmp
 
 # Ignore compiled assets
-/public/assets
+/public/system
 /tmp/cache/assets/
 
 # Ignore env vars for server environments, and SSL certs/keys
