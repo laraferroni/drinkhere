@@ -20,7 +20,7 @@ CSV.foreach(Rails.root + 'db/seeds/locations.csv') do |row|
 end
 
 
-a = Origin.where(name: "Bar Name").first_or_create
+a = Account.where(name: "Bar Name").first_or_create
 a.save
 
 ActsAsTenant.current_tenant = a

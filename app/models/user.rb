@@ -57,8 +57,10 @@ class User < ActiveRecord::Base
       tc = 0
       achievement.tasks.each do |task|
         completed = UserListItem.where("user_id = ? AND master_list_id = ?", self.id, task.master_list_id)
-        if completed.size >= task.total_items_needed
-          tc += 1
+        if task.total_items_needed.present?
+          if completed.size >= task.total_items_needed 
+            tc += 1
+          end
         end
       end
       logger.debug(achievement.tasks.size)
