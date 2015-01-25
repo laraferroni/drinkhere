@@ -1,5 +1,12 @@
 class AddAccounts < ActiveRecord::Migration
   def change
+
+    create_table :settings do |t|
+      t.integer :account_id
+      t.string :url
+      t.timestamps
+    end
+
   	create_table :accounts do |t|
       t.string :name
       t.string :subdomain
@@ -13,6 +20,8 @@ class AddAccounts < ActiveRecord::Migration
 		add_column :tasks, :account_id, :integer
 		add_column :item_types, :account_id, :integer
 		add_column :locations, :account_id, :integer
+    add_attachment :achievements, :homepageimage
+    add_column :achievements, :prereq_id, :integer
 
   end
 end
