@@ -48,9 +48,15 @@
             -if current_user.is_approver
               %li
                 =link_to "Pending ", "/queue"
+
+            -if current_user.is_admin
+              %li
+                =link_to "Admin ", "/admin"                
             %li
-              =link_to "Hi, "+current_user.first_name, destroy_user_session_path, :method => :delete
-            
+              -if current_user.first_name.nil?
+                =link_to "Sign Out", destroy_user_session_path, :method => :delete
+              -else
+                =link_to "Hi, " + current_user.try(:first_name), destroy_user_session_path, :method => :delete
               -@user_achievements.each do |a|
                 %img{:src=>a.icon.url(:thumb), :height=>"20px;", :title=>a.name}
           -else
