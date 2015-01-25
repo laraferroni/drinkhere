@@ -60,6 +60,7 @@ group :development, :default do
  gem 'better_errors'
  gem 'binding_of_caller'
 # gem 'puma'
+ gem 'tzinfo-data'
 end
 
 #geo

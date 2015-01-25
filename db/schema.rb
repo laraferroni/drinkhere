@@ -45,21 +45,6 @@ ActiveRecord::Schema.define(version: 20150121175640) do
     t.integer  "prereq_id"
   end
 
-  create_table "active_admin_comments", force: true do |t|
-    t.string   "namespace"
-    t.text     "body"
-    t.string   "resource_id",   null: false
-    t.string   "resource_type", null: false
-    t.integer  "author_id"
-    t.string   "author_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
-  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
-  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
-
   create_table "brands", force: true do |t|
     t.string   "name"
     t.string   "normalized_name"
@@ -167,8 +152,8 @@ ActiveRecord::Schema.define(version: 20150121175640) do
     t.integer  "total_items_needed"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "account_id"
     t.integer  "number_of_days"
+    t.integer  "account_id"
   end
 
   create_table "user_achievements", force: true do |t|
@@ -206,11 +191,11 @@ ActiveRecord::Schema.define(version: 20150121175640) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "full_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "account_id"
   end
 
