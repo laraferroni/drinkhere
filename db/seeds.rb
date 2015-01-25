@@ -10,14 +10,13 @@
 # Load the initial geo-coded notification areas.
 #
 
-if false
-	CSV.foreach(Rails.root + 'db/seeds/locations.csv') do |row|
-		name = row[0]
-		puts "Creating Location: #{name}"
-		n= Origin.where(name: name).first_or_create
-		n.address = name
-		n.save
-	end
+
+CSV.foreach(Rails.root + 'db/seeds/locations.csv') do |row|
+	name = row[0]
+	puts "Creating Location: #{name}"
+	n= Origin.where(name: name).first_or_create
+	n.address = name
+	n.save
 end
 
 CSV.foreach(Rails.root + 'db/seeds/rums.csv') do |row|
