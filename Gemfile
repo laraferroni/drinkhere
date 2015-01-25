@@ -59,13 +59,18 @@ end
 group :development, :default do
  gem 'better_errors'
  gem 'binding_of_caller'
-# gem 'puma'
  gem 'tzinfo-data'
+end
+
+
+group :production do
+ gem 'puma'
 end
 
 #geo
 group :geo, :default do
   gem 'geokit-rails'
+  gem 'tzinfo-data', '~> 1.2014.10', platforms: [:mingw, :mswin]
 end
 
 group :files, :default do
