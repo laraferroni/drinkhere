@@ -19,6 +19,12 @@ CSV.foreach(Rails.root + 'db/seeds/locations.csv') do |row|
 	n.save
 end
 
+
+a = Origin.where(name: "Bar Name").first_or_create
+a.save
+
+set_current_tenant(a)
+
 CSV.foreach(Rails.root + 'db/seeds/rums.csv') do |row|
 	puts row[2]
 
