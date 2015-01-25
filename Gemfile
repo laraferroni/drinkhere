@@ -7,13 +7,13 @@ gem 'rails', '4.1.1'
 gem 'pg'
 gem 'dotenv-rails'
 gem 'rails_12factor'
-gem 'rails_stdout_logging' 
+gem 'rails_stdout_logging'
 
 
 group :admin, :default do
   gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
   gem "rails_admin_import"
-	
+
 end
 
 # Use SCSS for stylesheets
@@ -64,7 +64,7 @@ end
 
 
 group :production do
- gem 'puma'
+ gem 'puma', :platforms => :ruby
 
 end
 
@@ -91,4 +91,3 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
