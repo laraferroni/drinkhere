@@ -59,12 +59,11 @@ end
 group :development, :default do
  gem 'better_errors'
  gem 'binding_of_caller'
- gem 'tzinfo-data'
 end
 
 
 group :production do
- gem 'puma'
+ gem 'puma', :platforms => :ruby
 end
 
 #geo
