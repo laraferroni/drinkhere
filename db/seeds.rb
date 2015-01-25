@@ -28,6 +28,9 @@ ActsAsTenant.current_tenant = a
 CSV.foreach(Rails.root + 'db/seeds/rums.csv') do |row|
 	puts row[2]
 
+	list = MasterList.where(name: "Fire Drinkers").first_or_create
+	list.save
+	
 	master = Achievement.where(name: "Master").first_or_create
 	master.save
 	grandmaster = Achievement.where(name: "Grand Master").first_or_create
@@ -39,18 +42,22 @@ CSV.foreach(Rails.root + 'db/seeds/rums.csv') do |row|
 
 	l50 = Task.where(name: "Master").first_or_create
 	l50.achievement_id = master.id
+	l50.master_list_id = list.id
 	l50.save
 	
 	l100 = Task.where(name: "Grand Master").first_or_create
 	l100.achievement_id = grandmaster.id
+	l100.master_list_id = list.id
 	l100.save
 
 	l200 = Task.where(name: "Ambassador").first_or_create
 	l200.achievement_id = ambassador.id
+	l200.master_list_id = list.id
 	l200.save
 	
 	l300 = Task.where(name: "High Chief").first_or_create
 	l300.achievement_id = chief.id
+	l300.master_list_id = list.id
 	l300.save
 
 	brand = row[1].strip
