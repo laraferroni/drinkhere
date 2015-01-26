@@ -15,10 +15,10 @@
 
 				-if current_user.nil? 
 					%a.btn.btn-primary{:href=>"/achievements/"+@achievement.id.to_s+"/sign_up"}  
-						Sign Me Up
+						Start
 				-elsif !current_user.working_on(@achievement.id) && current_user.prereqs_complete(@achievement.id)
 					%a.btn.btn-primary{:href=>"/achievements/"+@achievement.id.to_s+"/sign_up"} 
-						Sign Me Up
+						Start
 				-elsif !current_user.prereqs_complete(@achievement.id)
 					%h4
 						First, finish this list:
