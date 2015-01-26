@@ -20,7 +20,8 @@ CSV.foreach(Rails.root + 'db/seeds/locations.csv') do |row|
 end
 
 
-a = Account.where(name: "Bar Name").first_or_create
+a = Account.where(name: "Hale Pele").first_or_create
+a.subdomain = "halepele"
 a.save
 
 ActsAsTenant.current_tenant = a
@@ -136,12 +137,14 @@ CSV.foreach(Rails.root + 'db/seeds/rums.csv') do |row|
   
   n.proof = row[6].strip.to_f
 
-  n.out_of_stock = (row[10] != "n" )
-  n.no_longer_produced = (row[11] != "n" )
-  n.free_to_sample = (row[12] != "n")
-  n.rare = (row[13] != "n")
-  n.notes = row[15]
-  n.master_list_id = 1
+  n.out_of_stock = (row[10].downcase == "true")
+  n.no_longer_produced = (row[11].downcase == "true")
+  n.free_to_sample = (row[12].downcase == "true")
+  n.rare = (row[13].downcase == "true")
+  if row[15] != "NULL"
+  	n.notes = row[15]
+  end
+  n.master_list_id = list.id
   n.new = false
 
   n.save
