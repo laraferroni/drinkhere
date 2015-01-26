@@ -33,6 +33,8 @@ class MasterListItem < ActiveRecord::Base
       field :name
       field :photo
       field :available
+      field :rare
+      field :out_of_stock
       field :origin
       field :price
       field :notes
