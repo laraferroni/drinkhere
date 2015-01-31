@@ -1,5 +1,44 @@
-=@master_list_item.full_name
-%p
-=@master_list_item.price
-%p
-=@master_list_item.proof
+.container
+	.row.left
+		%h3
+			= link_to 'Back to List', :back 
+
+	.row.left
+		.col-md-5.col-lg-4
+			%img{:src=>@master_list_item.photo.url(:medium), :style=>"padding: 5px;"}
+		.col-sm-6
+			.row
+				.col-sm-12
+					%h2
+						=@master_list_item.full_name
+			.row
+				.col-sm-12
+					=@master_list_item.description
+
+			.row
+				.col-sm-12
+					=@master_list_item.city
+					=@master_list_item.origin.name if @master_list_item.origin.present?
+
+
+			-if @master_list_item.creator.present?	
+				.row
+					.col-sm-12
+						%h4
+							Created by:
+							=@master_list_item.creator.name 			
+
+			.row
+				.col-sm-12
+					%p
+					=@master_list_item.proof
+					-if @master_list_item.strength.present?
+						%h4
+							Strength:
+							=@master_list_item.strength					
+			.row
+				.col-sm-12
+					%h3
+						$
+						=@master_list_item.price
+

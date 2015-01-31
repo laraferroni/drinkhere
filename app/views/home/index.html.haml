@@ -15,7 +15,7 @@
 							%ul.dropdown-menu{"role"=>"menu"}
 								-current_user.user_achievements.each do |mylist|
 									%li
-										%a{:href=>"http://"+mylist.achievement.account.subdomain + ".localhost.dev:3000/index/"+mylist.achievement.tasks.first.id.to_s}
+										%a{:href=>"http://"+mylist.achievement.account.subdomain + ".localhost.dev:3000/index/"+mylist.achievement.id.to_s}
 											=mylist.achievement.name
 								%li.divider
 								%li
@@ -141,7 +141,7 @@
 
 								.row.visible-lg-inline-block.visible-md-inline-block.visible-xl-inline-block
 									.col-lg-12.center.item-image
-										%img{:src=>item.photo.url(:medium), :style=>"padding: 5px;"}
+										%img{:src=>item.photo.url(:square), :style=>"padding: 5px;"}
 								.row.item-buttons
 									.col-lg-12
 										-if user_list_item.present?
@@ -166,6 +166,9 @@
 												.col-xs-12
 													=item.full_name 
 													%p
+													-if item.limited_quantities
+														.orange.upper
+															Limited Quantities
 											.row.light-text		
 												.col-xs-6
 													=item.proof.to_int.to_s + " Proof" if item.proof.present?
