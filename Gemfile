@@ -6,8 +6,10 @@ gem 'rails', '4.1.1'
 # Use mysql as the database for Active Record
 gem 'pg'
 gem 'dotenv-rails'
-gem 'rails_12factor'
 gem 'rails_stdout_logging' 
+
+gem 'rails_12factor', group: :production
+
 
 
 group :admin, :default do
@@ -76,6 +78,7 @@ end
 
 group :files, :default do
   gem 'jquery-fileupload-rails'
+  gem 'aws-sdk'  
   gem 'paperclip', "3.4.2"
   gem 'remotipart', '~> 1.2'
 end
