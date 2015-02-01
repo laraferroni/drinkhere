@@ -1,6 +1,9 @@
 class MasterListItem < ActiveRecord::Base
   acts_as_tenant(:account)
-  has_attached_file :photo, :styles => { :medium => "500x500>",:small => "250x250", :square => "250x250#", :thumb => "100x100>" }, :default_url => ActionController::Base.helpers.asset_url("/assets/:style/missing.png")
+  
+  include Rails.application.routes.url_helpers
+
+  has_attached_file :photo, :styles => { :medium => "500x500>",:small => "250x250", :square => "250x250#", :thumb => "100x100>" }, :default_url => "https://s3-us-west-2.amazonaws.com/drinkhereassets/images/missing.png"
   validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
 
   belongs_to :master_list
