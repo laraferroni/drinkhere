@@ -10,6 +10,7 @@
 # Load the initial geo-coded notification areas.
 #
 
+require "open-uri"
 
 def AddListItem(rh, list)
 	if !rh['brand'].blank?
@@ -126,11 +127,8 @@ def AddListItem(rh, list)
 
  
   if rh['photo'].present?
-  	file_path = Rails.root + "db/seeds/images/"+rh['photo'].strip
-  	file = File.open(file_path)
-		n.photo = file
-		file.close
-
+  	url = "https://s3-us-west-2.amazonaws.com/drinkhereseeds/images/"+rh['photo'].strip
+  	n.photo = URI.parse(url)
   end
 
 	n.save
@@ -139,12 +137,15 @@ def AddListItem(rh, list)
 end
 
 
-if false
-	CSV.foreach(Rails.root + 'db/seeds/locations.csv') do |row|
-		name = row[0]
+if true
+	CSV.foreach(Rails.root + 'db/seeds/locations.csv', :headers => true) do |row|
+		rh = row.to_hash
+		name = rh["Name"]
 		puts "Creating Location: #{name}"
 		n= Origin.where(name: name).first_or_create
-		n.address = name
+		n.address = rh["Address"]
+		n.lat = rh["Lat"]
+		n.lng = rh["Lng"]
 		n.save
 	end
 end
