@@ -49,7 +49,7 @@ class AchievementsController < ApplicationController
 		list.user_id = current_user.id
 		respond_to do |format|
 	    if list.save
-	      format.html { redirect_to ("/index/"+list.achievement.tasks.first.id.to_s), notice: 'Achievement was successfully created.' }
+	      format.html { redirect_to ("/index/"+list.achievement.id.to_s), notice: 'Achievement was successfully created.' }
 	      format.json { render action: 'index', status: :created, location: list }
 	    else
 	      render json: {achievement_params: list.errors}, status: 422

@@ -34,6 +34,11 @@ h3{
   text-align: right;
 }
 
+
+.orange{
+  color: #ff9900  
+}
+
 .light-text{
   color: #aaa;
 }
@@ -80,13 +85,13 @@ h3{
 
 .item{
   border: 1px solid #eee;
-  height: 300px;
+  height: 350px;
 }
 
 .item-image{
   overflow:hidden;
-  max-height: 200px;
-  min-height: 200px;
+  max-height: 250px;
+  min-height: 250px;
   padding: 0px;
 }
 .item-image img{
@@ -107,7 +112,7 @@ h3{
 }
 .item-info{
   padding: 3px;
-  height: 100px;
+  height: 95px;
   width: 100%;
   position: absolute;
   z-index: 1;

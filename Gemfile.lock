@@ -52,6 +52,11 @@ GEM
     arel (5.0.1.20140414130214)
     autoprefixer-rails (5.0.0.1)
       execjs
+    aws-sdk (1.55.0)
+      aws-sdk-v1 (= 1.55.0)
+    aws-sdk-v1 (1.55.0)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
     bcrypt (3.1.9)
     bcrypt (3.1.9-x86-mingw32)
     better_errors (2.1.1)
@@ -222,8 +227,6 @@ GEM
       polyglot (>= 0.3.1)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    tzinfo-data (1.2014.10)
-      tzinfo (>= 1.0.0)
     uglifier (2.7.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
@@ -237,6 +240,7 @@ PLATFORMS
 DEPENDENCIES
   acts_as_tenant
   autoprefixer-rails
+  aws-sdk
   better_errors
   binding_of_caller
   cancan

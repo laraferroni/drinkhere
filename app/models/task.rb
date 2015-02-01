@@ -9,6 +9,7 @@ class Task < ActiveRecord::Base
 
 	rails_admin do 
     list do
+      field :account
       field :name
       field :achievement
       field :master_list

@@ -14,6 +14,7 @@ class Achievement < ActiveRecord::Base
 
 	rails_admin do 
     list do
+      field :account
       field :name
       field :prereq
       field :description
