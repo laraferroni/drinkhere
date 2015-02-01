@@ -1,1 +1,309 @@
-AlabamaAlaskaArizonaArkansasCaliforniaColoradoConnecticutDelawareDistrict of ColumbiaFloridaGeorgiaHawaiiIdahoIllinoisIndianaIowaKansasKentuckyLouisianaMaineMontanaNebraskaNevadaNew HampshireNew JerseyNew MexicoNew YorkNorth CarolinaNorth DakotaOhioOklahomaOregonMarylandMassachusettsMichiganMinnesotaMississippiMissouriPennsylvaniaRhode IslandSouth CarolinaSouth DakotaTennesseeTexasUtahVermontVirginiaWashingtonWest VirginiaWisconsinWyomingAlbertaBritish ColumbiaManitobaNew BrunswickNewfoundland and LabradorNorthwest TerritoriesNova ScotiaNunavutOntarioPrince Edward IslandQuebecSaskatchewanYukonAfghanistanAland IslandsAlbaniaAlgeriaAmerican SamoaAndorraAngolaAnguillaAntarcticaAntigua and BarbudaArgentinaArmeniaArubaAustraliaAustriaAzerbaijanBahamasBahrainBangladeshBarbadosBelarusBelgiumBelizeBeninBermudaBhutanBoliviaBosnia and HerzegovinaBotswanaBouvet IslandBrazilBritish Indian Ocean TerritoryBrunei DarussalamBulgariaBurkina FasoBurundiCambodiaCameroonCanadaCape VerdeCayman IslandsCentral African RepublicChadChileChinaChristmas IslandCocos (Keeling) IslandsColombiaComorosCongoCongoCook IslandsCosta RicaCote D'ivoireCroatiaCubaCyprusCzech RepublicDenmarkDjiboutiDominicaDominican RepublicEcuadorEgyptEl SalvadorEquatorial GuineaEritreaEstoniaEthiopiaFalkland Islands (Malvinas)Faroe IslandsFijiFinlandFranceFrench GuianaFrench PolynesiaFrench Southern TerritoriesGabonGambiaGeorgiaGermanyGhanaGibraltarGreeceGreenlandGrenadaGuadeloupeGuamGuatemalaGuernseyGuineaGuinea-bissauGuyanaHaitiHeard Island and Mcdonald IslandsHondurasHong KongHungaryIcelandIndiaIndonesiaIranIraqIrelandIsle of ManIsraelItalyJamaicaJapanJerseyJordanKazakhstanKenyaKiribatiKuwaitKyrgyzstanLaosLatviaLebanonLesothoLiberiaLibyan Arab JamahiriyaLiechtensteinLithuaniaLuxembourgMacaoMacedoniaMadagascarMalawiMalaysiaMaldivesMaliMaltaMarshall IslandsMartiniqueMauritaniaMauritiusMayotteMexicoMicronesiaMoldovaMonacoMongoliaMontenegroMontserratMoroccoMozambiqueMyanmarNamibiaNauruNepalNetherlandsNetherlands AntillesNew CaledoniaNew ZealandNicaraguaNigerNigeriaNiueNorfolk IslandNorth KoreaNorthern Mariana IslandsNorwayOmanPakistanPalau"Palestinian Territory, Occupied"PanamaPapua New GuineaParaguayPeruPhilippinesPitcairnPolandPortugalPuerto RicoQatarReunionRomaniaRussian FederationRwandaSaint HelenaSaint Kitts and NevisSaint LuciaSaint Pierre and MiquelonSaint Vincent and The GrenadinesSamoaSan MarinoSao Tome and PrincipeSaudi ArabiaSenegalSerbiaSeychellesSierra LeoneSingaporeSlovakiaSloveniaSolomon IslandsSomaliaSouth AfricaSouth Georgia and The South Sandwich IslandsSouth KoreaSpainSri LankaSudanSurinameSvalbard and Jan MayenSwazilandSwedenSwitzerlandSyrian Arab RepublicTaiwanTajikistanThailandTimor-lesteTogoTokelauTongaTrinidad and TobagoTunisiaTurkeyTurkmenistanTurks and Caicos IslandsTuvaluUgandaUkraineUnited Arab EmiratesUnited KingdomUnited Republic of TanzaniaUruguayUzbekistanVanuatuVatican CityVenezuelaViet Nam"Virgin Islands, British""Virgin Islands, U.S."Wallis and FutunaWestern SaharaYemenZambiaZimbabwe
+Name,Normalized name,Address,Description,Lat,Lng
+Alabama, - ,Alabama, - ,32.318231,-86.902298
+Alaska, - ,Alaska, - ,64.200841,-149.493673
+Arizona, - ,Arizona, - ,34.048928,-111.093731
+Arkansas, - ,Arkansas, - ,35.20105,-91.831833
+California, - ,California, - ,36.778261,-119.417932
+Colorado, - ,Colorado, - ,39.550051,-105.782067
+Connecticut, - ,Connecticut, - ,41.603221,-73.087749
+Delaware, - ,Delaware, - ,38.910833,-75.52767
+District of Columbia, - ,District of Columbia, - ,38.907192,-77.036871
+Florida, - ,Florida, - ,27.664827,-81.515754
+Georgia, - ,Georgia, - ,32.165622,-82.900075
+Hawaii, - ,Hawaii, - ,19.896766,-155.582782
+Idaho, - ,Idaho, - ,44.068202,-114.742041
+Illinois, - ,Illinois, - ,40.633125,-89.398528
+Indiana, - ,Indiana, - ,40.267194,-86.134902
+Iowa, - ,Iowa, - ,41.878003,-93.097702
+Kansas, - ,Kansas, - ,39.011902,-98.484247
+Kentucky, - ,Kentucky, - ,37.839333,-84.270018
+Louisiana, - ,Louisiana, - ,30.984298,-91.962333
+Maine, - ,Maine, - ,45.253783,-69.445469
+Montana, - ,Montana, - ,46.879682,-110.362566
+Nebraska, - ,Nebraska, - ,41.492537,-99.901813
+Nevada, - ,Nevada, - ,38.80261,-116.419389
+New Hampshire, - ,New Hampshire, - ,43.193852,-71.572395
+New Jersey, - ,New Jersey, - ,40.058324,-74.405661
+New Mexico, - ,New Mexico, - ,34.51994,-105.87009
+New York, - ,New York, - ,40.712784,-74.005941
+North Carolina, - ,North Carolina, - ,35.759573,-79.0193
+North Dakota, - ,North Dakota, - ,47.551493,-101.002012
+Ohio, - ,Ohio, - ,40.417287,-82.907123
+Oklahoma, - ,Oklahoma, - ,35.46756,-97.516428
+Oregon, - ,Oregon, - ,43.804133,-120.554201
+Maryland, - ,Maryland, - ,39.045755,-76.641271
+Massachusetts, - ,Massachusetts, - ,42.407211,-71.382437
+Michigan, - ,Michigan, - ,44.314844,-85.602364
+Minnesota, - ,Minnesota, - ,46.729553,-94.6859
+Mississippi, - ,Mississippi, - ,32.354668,-89.398528
+Missouri, - ,Missouri, - ,37.964253,-91.831833
+Pennsylvania, - ,Pennsylvania, - ,41.203322,-77.194525
+Rhode Island, - ,Rhode Island, - ,41.580095,-71.477429
+South Carolina, - ,South Carolina, - ,33.836081,-81.163725
+South Dakota, - ,South Dakota, - ,43.969515,-99.901813
+Tennessee, - ,Tennessee, - ,35.517491,-86.580447
+Texas, - ,Texas, - ,31.968599,-99.901813
+Utah, - ,Utah, - ,39.32098,-111.093731
+Vermont, - ,Vermont, - ,44.558803,-72.577841
+Virginia, - ,Virginia, - ,37.431573,-78.656894
+Washington, - ,Washington, - ,38.907192,-77.036871
+West Virginia, - ,West Virginia, - ,38.597626,-80.454903
+Wisconsin, - ,Wisconsin, - ,43.78444,-88.787868
+Wyoming, - ,Wyoming, - ,43.075968,-107.290284
+Alberta, - ,Alberta, - ,53.933271,-116.576504
+British Columbia, - ,British Columbia, - ,53.726668,-127.647621
+Manitoba, - ,Manitoba, - ,53.760861,-98.813876
+New Brunswick, - ,New Brunswick, - ,40.486216,-74.451819
+Newfoundland and Labrador, - ,Newfoundland and Labrador, - ,53.135509,-57.660436
+Northwest Territories, - ,Northwest Territories, - ,64.825544,-124.845733
+Nova Scotia, - ,Nova Scotia, - ,44.681987,-63.744311
+Nunavut, - ,Nunavut, - ,70.299771,-83.107577
+Ontario, - ,Ontario, - ,34.063344,-117.650888
+Prince Edward Island, - ,Prince Edward Island, - ,46.510712,-63.416814
+Quebec, - ,Quebec, - ,52.939916,-73.549136
+Saskatchewan, - ,Saskatchewan, - ,52.939916,-106.450864
+Yukon, - ,Yukon, - ,64.282327,-135.0
+Afghanistan, - ,Afghanistan, - ,33.93911,67.709953
+Aland Islands, - ,Aland Islands, - ,60.178525,19.915611
+Albania, - ,Albania, - ,41.153332,20.168331
+Algeria, - ,Algeria, - ,28.033886,1.659626
+American Samoa, - ,American Samoa, - ,-14.306407,-170.695018
+Andorra, - ,Andorra, - ,42.506285,1.521801
+Angola, - ,Angola, - ,-11.202692,17.873887
+Anguilla, - ,Anguilla, - ,18.220554,-63.068615
+Antarctica, - ,Antarctica, - ,-82.862752,-135.0
+Antigua and Barbuda, - ,Antigua and Barbuda, - ,17.060816,-61.796428
+Argentina, - ,Argentina, - ,-38.416097,-63.616672
+Armenia, - ,Armenia, - ,40.069099,45.038189
+Aruba, - ,Aruba, - ,12.52111,-69.968338
+Australia, - ,Australia, - ,-25.274398,133.775136
+Austria, - ,Austria, - ,47.516231,14.550072
+Azerbaijan, - ,Azerbaijan, - ,40.143105,47.576927
+Bahamas, - ,Bahamas, - ,25.03428,-77.39628
+Bahrain, - ,Bahrain, - ,26.0667,50.5577
+Bangladesh, - ,Bangladesh, - ,23.684994,90.356331
+Barbados, - ,Barbados, - ,13.193887,-59.543198
+Belarus, - ,Belarus, - ,53.709807,27.953389
+Belgium, - ,Belgium, - ,50.503887,4.469936
+Belize, - ,Belize, - ,17.189877,-88.49765
+Benin, - ,Benin, - ,9.30769,2.315834
+Bermuda, - ,Bermuda, - ,32.3078,-64.7505
+Bhutan, - ,Bhutan, - ,27.514162,90.433601
+Bolivia, - ,Bolivia, - ,-16.290154,-63.588653
+Bosnia and Herzegovina, - ,Bosnia and Herzegovina, - ,43.915886,17.679076
+Botswana, - ,Botswana, - ,-22.328474,24.684866
+Bouvet Island, - ,Bouvet Island, - ,-54.423199,3.413194
+Brazil, - ,Brazil, - ,-14.235004,-51.92528
+British Indian Ocean Territory, - ,British Indian Ocean Territory, - ,-7.334623,72.424251
+Brunei Darussalam, - ,Brunei Darussalam, - ,4.535277,114.727669
+Bulgaria, - ,Bulgaria, - ,42.733883,25.48583
+Burkina Faso, - ,Burkina Faso, - ,12.238333,-1.561593
+Burundi, - ,Burundi, - ,-3.373056,29.918886
+Cambodia, - ,Cambodia, - ,12.565679,104.990963
+Cameroon, - ,Cameroon, - ,7.369722,12.354722
+Canada, - ,Canada, - ,56.130366,-106.346771
+Cape Verde, - ,Cape Verde, - ,15.120142,-23.605172
+Cayman Islands, - ,Cayman Islands, - ,19.3133,-81.2546
+Central African Republic, - ,Central African Republic, - ,6.611111,20.939444
+Chad, - ,Chad, - ,15.454166,18.732207
+Chile, - ,Chile, - ,-35.675147,-71.542969
+China, - ,China, - ,35.86166,104.195397
+Christmas Island, - ,Christmas Island, - ,-10.447525,105.690449
+Cocos (Keeling) Islands, - ,Cocos (Keeling) Islands, - ,-12.170874,96.841739
+Colombia, - ,Colombia, - ,4.570868,-74.297333
+Comoros, - ,Comoros, - ,-11.6455,43.3333
+Congo, - ,Congo, - ,-0.228021,15.827659
+Cook Islands, - ,Cook Islands, - ,-21.236736,-159.777671
+Costa Rica, - ,Costa Rica, - ,9.748917,-83.753428
+Cote D'ivoire, - ,Cote D'ivoire, - ,7.539989,-5.54708
+Croatia, - ,Croatia, - ,45.1,15.2
+Cuba, - ,Cuba, - ,21.521757,-77.781167
+Cyprus, - ,Cyprus, - ,35.126413,33.429859
+Czech Republic, - ,Czech Republic, - ,49.817492,15.472962
+Denmark, - ,Denmark, - ,56.26392,9.501785
+Djibouti, - ,Djibouti, - ,11.825138,42.590275
+Dominica, - ,Dominica, - ,15.414999,-61.370976
+Dominican Republic, - ,Dominican Republic, - ,18.735693,-70.162651
+Ecuador, - ,Ecuador, - ,-1.831239,-78.183406
+Egypt, - ,Egypt, - ,26.820553,30.802498
+El Salvador, - ,El Salvador, - ,13.794185,-88.89653
+Equatorial Guinea, - ,Equatorial Guinea, - ,1.650801,10.267895
+Eritrea, - ,Eritrea, - ,15.179384,39.782334
+Estonia, - ,Estonia, - ,58.595272,25.013607
+Ethiopia, - ,Ethiopia, - ,9.145,40.489673
+Falkland Islands (Malvinas), - ,Falkland Islands (Malvinas), - ,-51.796253,-59.523613
+Faroe Islands, - ,Faroe Islands, - ,61.892635,-6.911806
+Fiji, - ,Fiji, - ,-17.713371,178.065032
+Finland, - ,Finland, - ,61.92411,25.748151
+France, - ,France, - ,46.227638,2.213749
+French Guiana, - ,French Guiana, - ,3.933889,-53.125782
+French Polynesia, - ,French Polynesia, - ,-17.679742,-149.406843
+French Southern Territories, - ,French Southern Territories, - ,-49.280366,69.348557
+Gabon, - ,Gabon, - ,-0.803689,11.609444
+Gambia, - ,Gambia, - ,13.443182,-15.310139
+Germany, - ,Germany, - ,51.165691,10.451526
+Ghana, - ,Ghana, - ,7.946527,-1.023194
+Gibraltar, - ,Gibraltar, - ,36.140751,-5.353585
+Greece, - ,Greece, - ,39.074208,21.824312
+Greenland, - ,Greenland, - ,71.706936,-42.604303
+Grenada, - ,Grenada, - ,12.1165,-61.679
+Guadeloupe, - ,Guadeloupe, - ,16.265,-61.551
+Guam, - ,Guam, - ,13.444304,144.793731
+Guatemala, - ,Guatemala, - ,15.783471,-90.230759
+Guernsey, - ,Guernsey, - ,49.465691,-2.585278
+Guinea, - ,Guinea, - ,9.945587,-9.696645
+Guinea-bissau, - ,Guinea-bissau, - ,11.803749,-15.180413
+Guyana, - ,Guyana, - ,4.860416,-58.93018
+Haiti, - ,Haiti, - ,18.971187,-72.285215
+Heard Island and Mcdonald Islands, - ,Heard Island and Mcdonald Islands, - ,-53.08181,73.504158
+Honduras, - ,Honduras, - ,15.199999,-86.241905
+Hong Kong, - ,Hong Kong, - ,22.396428,114.109497
+Hungary, - ,Hungary, - ,47.162494,19.503304
+Iceland, - ,Iceland, - ,64.963051,-19.020835
+India, - ,India, - ,20.593684,78.96288
+Indonesia, - ,Indonesia, - ,-0.789275,113.921327
+Iran, - ,Iran, - ,32.427908,53.688046
+Iraq, - ,Iraq, - ,33.223191,43.679291
+Ireland, - ,Ireland, - ,53.41291,-8.24389
+Isle of Man, - ,Isle of Man, - ,54.236107,-4.548056
+Israel, - ,Israel, - ,31.046051,34.851612
+Italy, - ,Italy, - ,41.87194,12.56738
+Jamaica, - ,Jamaica, - ,18.109581,-77.297508
+Japan, - ,Japan, - ,36.204824,138.252924
+Jersey, - ,Jersey, - ,49.214439,-2.13125
+Jordan, - ,Jordan, - ,30.585164,36.238414
+Kazakhstan, - ,Kazakhstan, - ,48.019573,66.923684
+Kenya, - ,Kenya, - ,-0.023559,37.906193
+Kiribati, - ,Kiribati, - ,1.870919,-157.362601
+Kuwait, - ,Kuwait, - ,29.31166,47.481766
+Kyrgyzstan, - ,Kyrgyzstan, - ,41.20438,74.766098
+Laos, - ,Laos, - ,19.85627,102.495496
+Latvia, - ,Latvia, - ,56.879635,24.603189
+Lebanon, - ,Lebanon, - ,33.854721,35.862285
+Lesotho, - ,Lesotho, - ,-29.609988,28.233608
+Liberia, - ,Liberia, - ,6.428055,-9.429499
+Libyan Arab Jamahiriya, - ,Libyan Arab Jamahiriya, - ,26.3351,17.228331
+Liechtenstein, - ,Liechtenstein, - ,47.166,9.555373
+Lithuania, - ,Lithuania, - ,55.169438,23.881275
+Luxembourg, - ,Luxembourg, - ,49.815273,6.129583
+Macao, - ,Macao, - ,22.198745,113.543873
+Macedonia, - ,Macedonia, - ,41.608635,21.745275
+Madagascar, - ,Madagascar, - ,-18.766947,46.869107
+Malawi, - ,Malawi, - ,-13.254308,34.301525
+Malaysia, - ,Malaysia, - ,4.210484,101.975766
+Maldives, - ,Maldives, - ,1.977247,73.536103
+Mali, - ,Mali, - ,17.570692,-3.996166
+Malta, - ,Malta, - ,35.937496,14.375416
+Marshall Islands, - ,Marshall Islands, - ,11.604021,165.313311
+Martinique, - ,Martinique, - ,14.641528,-61.024174
+Mauritania, - ,Mauritania, - ,21.00789,-10.940835
+Mauritius, - ,Mauritius, - ,-20.348404,57.552152
+Mayotte, - ,Mayotte, - ,-12.8275,45.166244
+Mexico, - ,Mexico, - ,23.634501,-102.552784
+Micronesia, - ,Micronesia, - ,6.887481,158.215072
+Moldova, - ,Moldova, - ,47.411631,28.369885
+Monaco, - ,Monaco, - ,43.738418,7.424616
+Mongolia, - ,Mongolia, - ,46.862496,103.846656
+Montenegro, - ,Montenegro, - ,42.708678,19.37439
+Montserrat, - ,Montserrat, - ,16.742498,-62.187366
+Morocco, - ,Morocco, - ,31.791702,-7.09262
+Mozambique, - ,Mozambique, - ,-18.665695,35.529562
+Myanmar, - ,Myanmar, - ,21.913965,95.956223
+Namibia, - ,Namibia, - ,-22.95764,18.49041
+Nauru, - ,Nauru, - ,-0.522778,166.931503
+Nepal, - ,Nepal, - ,28.394857,84.124008
+Netherlands, - ,Netherlands, - ,52.132633,5.291266
+Netherlands Antilles, - ,Netherlands Antilles, - ,12.20189,-68.262382
+New Caledonia, - ,New Caledonia, - ,-20.904305,165.618042
+New Zealand, - ,New Zealand, - ,-40.900557,174.885971
+Nicaragua, - ,Nicaragua, - ,12.865416,-85.207229
+Niger, - ,Niger, - ,17.607789,8.081666
+Nigeria, - ,Nigeria, - ,9.081999,8.675277
+Niue, - ,Niue, - ,-19.054445,-169.867233
+Norfolk Island, - ,Norfolk Island, - ,-29.023064,167.939597
+North Korea, - ,North Korea, - ,40.339852,127.510093
+Northern Mariana Islands, - ,Northern Mariana Islands, - ,15.0979,145.6739
+Norway, - ,Norway, - ,60.472024,8.468946
+Oman, - ,Oman, - ,21.512583,55.923255
+Pakistan, - ,Pakistan, - ,30.375321,69.345116
+Palau, - ,Palau, - ,7.51498,134.58252
+Panama, - ,Panama, - ,8.537981,-80.782127
+Papua New Guinea, - ,Papua New Guinea, - ,-6.314993,143.95555
+Paraguay, - ,Paraguay, - ,-23.442503,-58.443832
+Peru, - ,Peru, - ,-9.189967,-75.015152
+Philippines, - ,Philippines, - ,12.879721,121.774017
+Pitcairn, - ,Pitcairn, - ,-24.376745,-128.324235
+Poland, - ,Poland, - ,51.919438,19.145136
+Portugal, - ,Portugal, - ,39.399872,-8.224454
+Puerto Rico, - ,Puerto Rico, - ,18.220833,-66.590149
+Qatar, - ,Qatar, - ,25.354826,51.183884
+Reunion, - ,Reunion, - ,-21.115141,55.536384
+Romania, - ,Romania, - ,45.943161,24.96676
+Russian Federation, - ,Russian Federation, - ,61.52401,105.318756
+Rwanda, - ,Rwanda, - ,-1.940278,29.873888
+Saint Helena, - ,Saint Helena, - ,38.505243,-122.470387
+Saint Kitts and Nevis, - ,Saint Kitts and Nevis, - ,17.357822,-62.782998
+Saint Pierre and Miquelon, - ,Saint Pierre and Miquelon, - ,46.8852,-56.3159
+Saint Vincent and The Grenadines, - ,Saint Vincent and The Grenadines, - ,13.252818,-61.197096
+Samoa, - ,Samoa, - ,-13.759029,-172.104629
+San Marino, - ,San Marino, - ,43.94236,12.457777
+Sao Tome and Principe, - ,Sao Tome and Principe, - ,0.18636,6.613081
+Saudi Arabia, - ,Saudi Arabia, - ,23.885942,45.079162
+Senegal, - ,Senegal, - ,14.497401,-14.452362
+Serbia, - ,Serbia, - ,44.016521,21.005859
+Seychelles, - ,Seychelles, - ,-4.679574,55.491977
+Sierra Leone, - ,Sierra Leone, - ,8.460555,-11.779889
+Singapore, - ,Singapore, - ,1.352083,103.819836
+Slovakia, - ,Slovakia, - ,48.669026,19.699024
+Slovenia, - ,Slovenia, - ,46.151241,14.995463
+Solomon Islands, - ,Solomon Islands, - ,-9.64571,160.156194
+Somalia, - ,Somalia, - ,5.152149,46.199616
+South Africa, - ,South Africa, - ,-30.559482,22.937506
+South Georgia and The South Sandwich Islands, - ,South Georgia and The South Sandwich Islands, - ,-54.429579,-36.587909
+South Korea, - ,South Korea, - ,35.907757,127.766922
+Spain, - ,Spain, - ,40.416752,-3.703864
+Sri Lanka, - ,Sri Lanka, - ,7.873054,80.771797
+Sudan, - ,Sudan, - ,12.862807,30.217636
+Suriname, - ,Suriname, - ,3.919305,-56.027783
+Svalbard and Jan Mayen, - ,Svalbard and Jan Mayen, - ,77.553604,23.670272
+Swaziland, - ,Swaziland, - ,-26.522503,31.465866
+Sweden, - ,Sweden, - ,60.128161,18.643501
+Switzerland, - ,Switzerland, - ,46.818188,8.227512
+Syrian Arab Republic, - ,Syrian Arab Republic, - ,34.802075,38.996815
+Taiwan, - ,Taiwan, - ,23.69781,120.960515
+Tajikistan, - ,Tajikistan, - ,38.861034,71.276093
+Thailand, - ,Thailand, - ,15.870032,100.992541
+Timor-leste, - ,Timor-leste, - ,-8.874217,125.727539
+Togo, - ,Togo, - ,8.619543,0.824782
+Tokelau, - ,Tokelau, - ,-9.2002,-171.8484
+Tonga, - ,Tonga, - ,-21.178986,-175.198242
+Tunisia, - ,Tunisia, - ,33.886917,9.537499
+Turkey, - ,Turkey, - ,38.963745,35.243322
+Turkmenistan, - ,Turkmenistan, - ,38.969719,59.556278
+Turks and Caicos Islands, - ,Turks and Caicos Islands, - ,21.694025,-71.797928
+Tuvalu, - ,Tuvalu, - ,-7.478442,178.679921
+Uganda, - ,Uganda, - ,1.373333,32.290275
+Ukraine, - ,Ukraine, - ,48.379433,31.16558
+United Arab Emirates, - ,United Arab Emirates, - ,23.424076,53.847818
+United Kingdom, - ,United Kingdom, - ,55.378051,-3.435973
+United Republic of Tanzania, - ,United Republic of Tanzania, - ,-6.369028,34.888822
+Uruguay, - ,Uruguay, - ,-32.522779,-55.765835
+Uzbekistan, - ,Uzbekistan, - ,41.377491,64.585262
+Vanuatu, - ,Vanuatu, - ,-15.376706,166.959158
+Vatican City, - ,Vatican City, - ,41.902916,12.453389
+Venezuela, - ,Venezuela, - ,6.42375,-66.58973
+Viet Nam, - ,Viet Nam, - ,14.058324,108.277199
+US Virgin Islands, - ,US Virgin Islands, - ,18.335765,-64.896335
+Wallis and Futuna, - ,Wallis and Futuna, - ,-14.2938,-178.1165
+Western Sahara, - ,Western Sahara, - ,24.215527,-12.885834
+Yemen, - ,Yemen, - ,15.552727,48.516388
+Zambia, - ,Zambia, - ,-13.133897,27.849332
+Zimbabwe, - ,Zimbabwe, - ,-19.015438,29.154857
+Trinidad, - ,Trinidad, - ,10.691803,-61.222503
+St. Kitts, - ,St. Kitts, - ,32.66508,-114.51324
+US Virgin Islands, - ,US Virgin Islands, - ,18.335765,-64.896335
+Saint Lucia, - ,Saint Lucia, - ,13.909444,-60.978893
+USA, - ,USA, - ,37.09024,-95.712891
+Antigua, - ,Antigua, - ,17.074656,-61.817521
+Bonaire, - ,Bonaire, - ,12.178361,-68.238534
+British Virgin Islands, - ,British Virgin Islands, - ,18.420695,-64.639968
