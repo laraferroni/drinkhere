@@ -1,28 +1,31 @@
-== README
+= drinkhere documentation
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+== Getting Started On Windows
 
-Things you may want to cover:
+You need to know if you are running a 32-bit or 64-bit version of Windows.  To find out, press +Windows-r+ and enter <tt>control.exe /name Microsoft.System</tt>
 
-* Ruby version
+1. Install +node+ - a javascript runtime for Windows from http://nodejs.org/download/ - you'll want the .msi for the right bit version of Windows. Just accept all of the default choices.
 
-* System dependencies
+2. Install a build of +postgres+ as our database.  You'll want <tt>version 9.2.9</tt> from http://www.enterprisedb.com/products-services-training/pgdownload#windows.  Choose +postgres+ as the password for the db, and there's no need to change the port from +5432+.  You can accept the rest of the defaults here.
 
-* Configuration
+3. Install +atom+ - a reasonably good text editor for +Windows+ that works well with +rails+.  It is found at http://atom.io.
 
-* Database creation
+4. Install +Rails+ itself.  We are using <tt>ruby 2.0</tt>.  So head over to the +RailsInstaller+ at http://railsinstaller.org, and click to download <tt>Windows Ruby 2.0</tt>. Run the installer, and accept the defaults.
 
-* Database initialization
+5. Configure your security (ssh) keys.  At the end of the +Rails+ install, you should see a message that says <tt>your public key has been copied to the clipboard</tt>.  You'll want to paste this into your +GitHub+ account at https://github.com/settings/ssh.  Just choose <tt>Add A Key</tt> and paste it in to the +Key+ field, and give it a title like "My Home PC"  When you paste it in, it should look something like:
 
-* How to run the test suite
+     ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCmyN17vhmMyLxXlsSKdf0Po2enETp7Op8PAMq/NTQBllDw5I8ke6C76pPDPVeZoI+T7LxbUtUhWbHNNbkJRwYdaqb3CZ+fYWNGzBJACzevZbmXmBeEthox3X+3Al2yrGIud4Iagptqw2aIrE2gDTzkQPmrDLJnn5s05h7HuAOcD5iZ++nOXN9tACrmPRUvRIltQBnaM9xM7hRVALr8FrXjxM5P+ru9IJcgkWWjf263SCU8/+vveyYD8dYrSB3ToVbwtD9kULz3qo08ChqvJfOQErt/JKke/OHedYY28sYJqIzjmJoNd36RxJoni8BfMVpX1cFIlx/bFunuiXYb2CSt Cam Ferroni <cam@ferroni.net>
+  
+   If it doesn't, then you'll need to do the following.  In the <tt>command window</tt> you'll see a line just above the cursor that says something like:
 
-* Services (job queues, cache servers, search engines, etc.)
+     public_key_location: C:\Users\admin/.ssh/id_rsa.pub
+  
+   with +admin+ replaced by whatever username you use to log into windows. Type (without the >) into the command line:
 
-* Deployment instructions
+     > atom C:\Users\_your_username_/.ssh/id_rsa.pub
+  
+   To load the file into +atom+, and then you should be able to copy all of it and paste it into GitHub.
 
-* ...
+6. Install <tt>GitHub For Windows</tt> from http://windows.github.com.
 
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+   Once it is installed, you should be able to enter your credentials for +github+, hit the <tt>+</tt> sign, choose +Clone+, choose +laraferroni/drinkhere+, choose <tt>C:\Sites</tt> to clone it into.
