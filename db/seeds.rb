@@ -19,7 +19,7 @@ def AddListItem(rh, list)
 			brand = brand.html_safe
 			b = Brand.where(name: brand).first_or_create
 			if rh['url'].present?
-				if rh['url'].strip != "NULL" 
+				if rh['url'].strip != "NULL"
 					b.url = rh['url'].strip
 				end
 			end
@@ -64,7 +64,7 @@ def AddListItem(rh, list)
 		cr.save
 	end
 
-  
+
   if rh['name'].present?
 	  n.name = rh['name'].strip
 	end
@@ -80,7 +80,7 @@ def AddListItem(rh, list)
   if rh['city'].present?
 	  n.city = rh['city'].strip
 	end
-	
+
 	if cr.present?
   	n.creator_id = cr.id
   end
@@ -125,9 +125,9 @@ def AddListItem(rh, list)
   n.master_list_id = list.id
   n.new = false
 
- 
+
   if rh['photo'].present?
-  	url = "https://s3-us-west-2.amazonaws.com/drinkhereseeds/images/"+rh['photo'].strip
+  	url = "http://s3-us-west-2.amazonaws.com/drinkhereseeds/images/"+rh['photo'].strip
   	n.photo = URI.parse(url)
   end
 
@@ -135,7 +135,6 @@ def AddListItem(rh, list)
 
   return n
 end
-
 
 if true
 	CSV.foreach(Rails.root + 'db/seeds/locations.csv', :headers => true) do |row|
@@ -150,9 +149,7 @@ if true
 	end
 end
 
-
-a = Account.where(name: "Hale Pele").first_or_create
-a.subdomain = "halepele"
+a = Account.where(name: "Hale Pele", subdomain: "halepele").first_or_create
 a.save
 
 ActsAsTenant.current_tenant = a
@@ -162,7 +159,7 @@ CSV.foreach(Rails.root + 'db/seeds/rums.csv', :headers => true) do |row|
 	rh = row.to_hash
 	list = MasterList.where(name: "Fire Drinkers").first_or_create
 	list.save
-	
+
 	master = Achievement.where(name: "Master Fire Drinker").first_or_create
 	master.save
 	grandmaster = Achievement.where(name: "Grand Master Fire Drinker").first_or_create
@@ -177,11 +174,11 @@ CSV.foreach(Rails.root + 'db/seeds/rums.csv', :headers => true) do |row|
 	l50.master_list_id = list.id
 	l50.total_items_needed = 50
 	l50.save
-	
+
 	l100 = Task.where(name: "Grand Master").first_or_create
 	l100.achievement_id = grandmaster.id
 	l100.master_list_id = list.id
-	l100.total_items_needed = 100	
+	l100.total_items_needed = 100
 	l100.save
 
 	l200 = Task.where(name: "Ambassador").first_or_create
@@ -189,19 +186,19 @@ CSV.foreach(Rails.root + 'db/seeds/rums.csv', :headers => true) do |row|
 	l200.master_list_id = list.id
 	l200.total_items_needed = 200
 	l200.save
-	
+
 	l300 = Task.where(name: "High Chief").first_or_create
 	l300.achievement_id = chief.id
 	l300.master_list_id = list.id
-	l300.total_items_needed = 300	
+	l300.total_items_needed = 300
 	l300.save
 
   item = AddListItem(rh, list)
   puts item.full_name
-	
+
 	if rh['level'].present?
 		level = rh['level'].strip
-	  if level!= "NULL"  	
+	  if level!= "NULL"
 	  	if level == 50
 	  		item.task_id = l50.id
 	  	end
@@ -213,7 +210,7 @@ CSV.foreach(Rails.root + 'db/seeds/rums.csv', :headers => true) do |row|
 	  	end
 	  	if level == 300
 	  		item.task_id = l300.id
-	  	end  	  	
+	  	end
 	  end
 	  item.save
 	end
@@ -226,10 +223,10 @@ CSV.foreach(Rails.root + 'db/seeds/cocktails.csv', :headers => true) do |row|
 
 	list = MasterList.where(name: "Cocktails").first_or_create
 	list.save
-	
+
 	master = Achievement.where(name: "Water Bearers").first_or_create
 	master.save
-	
+
 	wb = Task.where(name: "Water Bearers").first_or_create
 	wb.achievement_id = master.id
 	wb.master_list_id = list.id
@@ -244,12 +241,10 @@ CSV.foreach(Rails.root + 'db/seeds/cocktails.csv', :headers => true) do |row|
 end
 
 #pope house seeds
-a = Account.where(name: "Pope House").first_or_create
-a.subdomain = "popehouse"
+a = Account.where(name: "Pope House", subdomain: "popehouse").first_or_create
 a.save
 
 ActsAsTenant.current_tenant = a
-
 
 CSV.foreach(Rails.root + 'db/seeds/ph_bourbon.csv', :headers => true) do |row|
 
@@ -257,7 +252,7 @@ CSV.foreach(Rails.root + 'db/seeds/ph_bourbon.csv', :headers => true) do |row|
 
 	list = MasterList.where(name: "Bourbons").first_or_create
 	list.save
-	
+
 	master = Achievement.where(name: "Bourbon Derby").first_or_create
 	master.save
 
@@ -266,11 +261,8 @@ CSV.foreach(Rails.root + 'db/seeds/ph_bourbon.csv', :headers => true) do |row|
 	bourbons.master_list_id = list.id
 	bourbons.total_items_needed = 50
 	bourbons.save
-	
+
 	item = AddListItem(rh, list)
 	puts item.full_name
 
 end
-
-
-

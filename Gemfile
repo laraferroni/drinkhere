@@ -6,11 +6,8 @@ gem 'rails', '4.1.1'
 # Use mysql as the database for Active Record
 gem 'pg'
 gem 'dotenv-rails'
-gem 'rails_12factor'
 gem 'rails_stdout_logging'
 gem 'rails_12factor', group: :production
-
-
 
 group :admin, :default do
   gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
@@ -72,7 +69,7 @@ end
 #geo
 group :geo, :default do
   gem 'geokit-rails'
-  gem 'tzinfo-data', '~> 1.2014.10', platforms: [:mingw, :mswin]
+  gem 'tzinfo-data', '~> 1.2014.10', :platforms => [:mingw, :mswin]  
 end
 
 group :files, :default do

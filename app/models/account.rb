@@ -1,16 +1,16 @@
 class Account < ActiveRecord::Base
   has_one :setting
-  
+
 
   after_save :create_settings
 
   def create_settings
   	logger.debug("create settings")
   	logger.debug(self.id)
-  	s = Setting.where(account_id: self.id).first
+    ActsAsTenant.current_tenant = self
+    s = Setting.first
   	if s.nil?
   		s = Setting.new
-	  	s.account_id = self.id
   		s.save
 
   		u = User.new
@@ -28,13 +28,12 @@ class Account < ActiveRecord::Base
 
 	  	r = Role.new
 	  	r.user_id = u.id
-	  	r.account_id = self.id
 	  	r.list_manager = true
 	  	r.super_admin = true
 	  	r.save
 	  end
   end
 
-  	
+
 
 end
