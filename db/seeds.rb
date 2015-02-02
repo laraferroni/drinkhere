@@ -164,7 +164,7 @@ else
 	a_name = "admin@drinkhere.com"
 end
 
-u = User.where(name: a_name).first_or_create
+u = User.where(email: a_name).first_or_create
 
 u.email = a_name
 u.password = "changeme"
@@ -279,7 +279,7 @@ else
 	a_name = "admin@drinkhere.com"
 end
 
-u = User.where(name: a_name).first_or_create
+u = User.where(email: a_name).first_or_create
 
 u.email = a_name
 u.password = "changeme"
