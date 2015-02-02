@@ -5,6 +5,8 @@ class Account < ActiveRecord::Base
   after_save :create_settings
 
   def create_settings
+  	ActsAsTenant.current_tenant = self
+
   	logger.debug("create settings")
   	logger.debug(self.id)
   	s = Setting.where(account_id: self.id).first
