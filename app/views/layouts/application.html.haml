@@ -42,7 +42,8 @@
           %li{:style=>"padding: 2px;"}
             %a{:href=>"/"}
               %img{:src=>asset_url("drinkhere.png"), :height=>"35px;"}
-              Drink Everything
+              %span{:style=>"color: #666; font-family: 'Roboto Slab', sans-serif"}
+                Drink Everything
       .collapse.navbar-collapse#dh-menu
         %ul.nav.navbar-nav.navbar-right
           -if current_user
