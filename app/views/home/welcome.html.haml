@@ -2,7 +2,7 @@
 	%h1	
 		%img{:src=>@settings.logo.url(:medium), :height=>"75px;"}
 	%h5.upper
-		drink here
+		drink everything
 
 	-if @site_achievements.size	> 1
 	
@@ -14,7 +14,7 @@
 
 					-@site_achievements.each do  |achievement|
 
-						%a{:href=>achievement_path(achievement.id), :style=>"float: left;display: block;position: relative;color: #FFF;overflow: hidden;"}
+						%a{:href=>achievement_path(achievement.id), :style=>"float: left;display: block;position: relative;color: #FFF;overflow: hidden; width: 100%"}
 							%img{:src=>achievement.homepageimage.url(:large), :style=>"display: inline; height: 450px; width: auto;"}
 							%span.overlay{:style=>"position: absolute; bottom: 0; left: 0; display: block; width: 100%; background: rgba(0,0,0,.5);"}
 								.overlay_inner{:style=>"display:block;padding: 9px 15px 10px 15px;"}
