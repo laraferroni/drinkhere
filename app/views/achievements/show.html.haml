@@ -52,15 +52,34 @@
 						Taste each of these:
 			.row
 				.col-md-12
+
 					-task.required_list_items.each do |item|
 						.item_wrap
 							.col-md-2.item
-								.row
+								.row.visible-lg-inline-block.visible-md-inline-block.visible-xl-inline-block
 									.col-lg-12.center.item-image
-										%img{:src=>item.photo.url(:medium), :style=>"padding: 5px;"}
-								.row
-									.col-lg-12
-										=item.full_name
+										%img{:src=>item.photo.url(:small), :style=>"padding: 5px;"}
+
+								.row.item-info
+									.col-lg-12.col-xs-8
+										.row
+											.col-xs-12
+												=item.full_name 
+												%p
+										.row.light-text		
+											.col-xs-6
+												=item.proof.to_int.to_s + " Proof" if item.proof.present?
+											.col-xs-6.right
+												-if item.master_list.show_price
+													=number_to_currency(item.price.to_f) 
+										.row.light-text
+											.col-xs-12
+												=item.origin.name if item.origin.present?
+									.col-xs-4.visible-xs-inline-block.visible-sm-inline-block.right.item-image
+										%img.border-1px{:src=>item.photo.url(:square)}
+
+
+
 
 
 		-if task.optional_list_items.size > 0
@@ -73,10 +92,26 @@
 					-task.optional_list_items.each do |item|
 						.item_wrap
 							.col-md-2.item
-								.row
+								.row.visible-lg-inline-block.visible-md-inline-block.visible-xl-inline-block
 									.col-lg-12.center.item-image
-										%img{:src=>item.photo.url(:medium), :style=>"padding: 5px;"}
-								.row
-									.col-lg-12
-										=item.full_name
+										%img{:src=>item.photo.url(:small), :style=>"padding: 5px;"}
+
+								.row.item-info
+									.col-lg-12.col-xs-8
+										.row
+											.col-xs-12
+												=item.full_name 
+												%p
+										.row.light-text		
+											.col-xs-6
+												=item.proof.to_int.to_s + " Proof" if item.proof.present?
+											.col-xs-6.right
+												-if item.master_list.show_price
+													=number_to_currency(item.price.to_f) 
+										.row.light-text
+											.col-xs-12
+												=item.origin.name if item.origin.present?
+									.col-xs-4.visible-xs-inline-block.visible-sm-inline-block.right.item-image
+										%img.border-1px{:src=>item.photo.url(:square)}
+
 
