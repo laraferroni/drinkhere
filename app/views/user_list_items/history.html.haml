@@ -1,0 +1,90 @@
+/index
+.container
+	%img{:src=>@settings.logo.url(:medium), :height=>"75px;"}
+	%h2
+		Customer History
+		%p
+		&nbsp;
+	%hr.bigonly
+	%h4.bigonly
+		.row
+			.col-md-2.col-md-offset-1.left
+				Customer
+			.col-md-3.left
+				Drink
+			.col-md-1.left
+				Status
+			.col-md-2.left
+				Approved By
+			.col-md-2
+				Date Completed
+
+
+	%hr
+	-@all_items.each do |item|
+		-if item.master_list_item.present?
+			.row
+				.col-md-2.col-md-offset-1.left
+					=item.user.full_name
+				.col-md-3.left
+					=item.master_list_item.full_name
+				.col-md-1.left
+					-if item.approval_status == Enum::PENDING
+
+						= form_for :id, :remote => true do |f|
+		     
+							= hidden_field_tag "user_list_item[id]", item.id
+							= hidden_field_tag "user_list_item[approval_status]", Enum::APPROVED
+							= hidden_field_tag "user_list_item[approved_by_id]", current_user.id
+
+							%button.btn.btn-default.complete_it
+								Approve
+							%button.btn.btn-default.reject_it
+								Reject
+
+
+					-elsif item.approval_status == Enum::APPROVED
+						.green
+							Approved
+
+
+					-elsif item.approval_status == Enum::REJECTED
+						.red
+							Rejected
+				.col-md-2.left
+					-if item.approved_by.present?
+						=item.approved_by.full_name
+				.col-md-2
+					=item.date_completed
+
+
+%p
+
+:javascript
+
+	$(document).ready(function(){
+		$('.item').hover(
+			function(){
+				$(this).find(".item-buttons").fadeIn("fast");
+			},
+			function(){
+				$(this).find(".item-buttons").fadeOut("fast");
+			}
+
+		);  
+
+
+		$('.complete_it').on("click", function(){
+			alert($(this.form));
+
+			$(this.form).submit(function( event ) {
+
+				$(this).addClass("complete");
+				event.preventDefault();
+				
+			});
+
+		});
+
+
+	});

@@ -7,12 +7,12 @@
 	.square-60
 		-@achievements.each do |item|
 			%h4
-				.row.left.bottom-border{:style=>"height: 100px;"}
+				.row.left.bottom-border{:style=>"padding: 20px;"}
 
-					.col-sm-1
+					.col-xs-1
 						%a{:href=>achievement_path(item.id)}
-							%img{:src=>item.icon.url(:thumb), :height=>"50px;"}
-					.col-sm-7
+							%img.list-image{:src=>item.icon.url(:thumb)}
+					.col-xs-7
 						%a{:href=>achievement_path(item.id)}
 							=item.name
 						%p
@@ -20,7 +20,7 @@
 							Requires: 
 							%a{:href=>achievement_path(item.prereq)}
 								=item.prereq.name
-					.col-sm-3.right
+					.col-md-3.right
 						-if current_user.nil? 
 							%a.btn.btn-primary{:href=>achievement_path(item.id)}
 								Learn More
@@ -30,3 +30,6 @@
 						-else
 							%a.btn.btn-primary{:href=>"/index/"+item.id.to_s}
 								In Progress
+
+
+								

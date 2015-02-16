@@ -37,17 +37,27 @@
           %span.icon-bar
           %span.icon-bar
           %span.icon-bar
-        %ul.nav.navbar-nav
-          %li
+
+        %ul.list-unstyled
+          %li{:style=>"padding: 2px;"}
             %a{:href=>"/"}
-              %img{:src=>asset_url("drinkhere.png"), :height=>"35px;"}
-              Drink Here
+              %img{:src=>asset_url("drinkhere.png"), :height=>"30px;"}
+              %span{:style=>"color: #666; font-family: 'Roboto Slab', sans-serif"}
+                Drink Everything
       .collapse.navbar-collapse#dh-menu
         %ul.nav.navbar-nav.navbar-right
           -if current_user
+
+            %li 
+              =link_to "Lists", achievements_path
+
             -if current_user.is_approver
               %li
                 =link_to "Pending ", "/queue"
+
+            -if current_user.is_approver
+              %li
+                =link_to "History ", "/history"
 
             -if current_user.is_admin
               %li

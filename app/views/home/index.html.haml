@@ -76,7 +76,7 @@
 
 								.row.visible-lg-inline-block.visible-md-inline-block.visible-xl-inline-block
 									.col-lg-12.center.item-image
-										%img{:src=>item.photo.url(:medium), :style=>"padding: 5px;"}
+										%img{:src=>item.photo.url(:small), :style=>"padding: 5px;"}
 								.row.item-buttons
 									.col-lg-12
 										-if user_list_item.present?
@@ -111,7 +111,7 @@
 												.col-xs-12
 													=item.origin.name if item.origin.present?
 										.col-xs-4.visible-xs-inline-block.visible-sm-inline-block.right.item-image
-											%img.border-1px{:src=>item.photo.url(:thumb)}
+											%img.border-1px{:src=>item.photo.url(:square)}
 
 
 			-if task.optional_list_items.size > 0
@@ -141,7 +141,7 @@
 
 								.row.visible-lg-inline-block.visible-md-inline-block.visible-xl-inline-block
 									.col-lg-12.center.item-image
-										%img{:src=>item.photo.url(:square), :style=>"padding: 5px;"}
+										%img{:src=>item.photo.url(:small), :style=>"padding: 5px;"}
 								.row.item-buttons
 									.col-lg-12
 										-if user_list_item.present?
@@ -179,7 +179,7 @@
 												.col-xs-12
 													=item.origin.name if item.origin.present?
 										.col-xs-4.visible-xs-inline-block.visible-sm-inline-block.right.item-image
-											%img.border-1px{:src=>item.photo.url(:thumb)}
+											%img.border-1px{:src=>item.photo.url(:square)}
 
 :javascript
 

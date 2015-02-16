@@ -4,11 +4,14 @@
 	%h2
 		Awaiting Approval
 		%p
-		&nbsp;
+		%a.btn.btn-primary{:href=>"approve_all"}
+			Approve All
+		%p
+	%hr
 	-@queued_items.each do |item|
 		-if item.master_list_item.present?
-			.row.bottom-border
-				.col-md-2.left
+			.row
+				.col-md-2.col-md-offset-1.left
 					=item.user.full_name
 				.col-md-3.left
 					=item.master_list_item.full_name
@@ -25,7 +28,7 @@
 							Approve
 						%button.btn.btn-default.reject_it
 							Reject
-
+			%hr
 :javascript
 
 	$(document).ready(function(){
@@ -41,7 +44,6 @@
 
 
 		$('.complete_it').on("click", function(){
-			alert($(this.form));
 
 			$(this.form).submit(function( event ) {
 

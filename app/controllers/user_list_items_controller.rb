@@ -41,11 +41,34 @@ class UserListItemsController < ApplicationController
 	def destroy
 	end
 
+	def history
+		if current_user.is_approver
+			@all_items = UserListItem.all
+		else
+			redirect_to main_app.root_path
+		end
+	end
+
+
 	def queue
 		if current_user.is_approver
 			@queued_items = UserListItem.where(approval_status: Enum::PENDING)
 		else
-			redirect_to main_app.root_pa th
+			redirect_to main_app.root_path
+		end
+	end
+
+	def approve_all
+		if current_user.is_approver
+			@queued_items = UserListItem.where(approval_status: Enum::PENDING)
+			@queued_items.each do |item|
+				item.approval_status = Enum::APPROVED
+				item.approved_by = current_user
+				item.save
+			end
+			redirect_to "/queue"
+		else
+			redirect_to main_app.root_path
 		end
 	end
 

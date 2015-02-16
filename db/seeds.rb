@@ -151,8 +151,28 @@ end
 
 a = Account.where(name: "Hale Pele", subdomain: "halepele").first_or_create
 a.save
-
 ActsAsTenant.current_tenant = a
+
+a_name = a.subdomain
+if a_name.present?
+	a_name = a_name.gsub(/\s+/, "")
+	a_name = "admin@"+a_name.downcase + ".com"
+else
+	a_name = "admin@drinkhere.com"
+end
+
+u = User.where(email: a_name).first_or_create
+
+u.email = a_name
+u.password = "changeme"
+u.password_confirmation = "changeme"
+u.save!
+
+r = Role.where("user_id = ? AND account_id = ?", u.id, a.id).first_or_create
+r.user_id = u.id
+r.list_manager = true
+r.super_admin = true
+r.save
 
 CSV.foreach(Rails.root + 'db/seeds/rums.csv', :headers => true) do |row|
 
@@ -245,6 +265,27 @@ a = Account.where(name: "Pope House", subdomain: "popehouse").first_or_create
 a.save
 
 ActsAsTenant.current_tenant = a
+
+a_name = a.subdomain
+if a_name.present?
+	a_name = a_name.gsub(/\s+/, "")
+	a_name = "admin@"+a_name.downcase + ".com"
+else
+	a_name = "admin@drinkhere.com"
+end
+
+u = User.where(email: a_name).first_or_create
+
+u.email = a_name
+u.password = "changeme"
+u.password_confirmation = "changeme"
+u.save!
+
+r = Role.where("user_id = ? AND account_id = ?", u.id, a.id).first_or_create
+r.user_id = u.id
+r.list_manager = true
+r.super_admin = true
+r.save
 
 CSV.foreach(Rails.root + 'db/seeds/ph_bourbon.csv', :headers => true) do |row|
 

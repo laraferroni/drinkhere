@@ -21,6 +21,9 @@ Rails.application.routes.draw do
   get 'index/:id' => 'home#index'
   get 'queue' => 'user_list_items#queue'
   post 'queue' => 'user_list_items#update'
+  get 'approve_all' => 'user_list_items#approve_all'
+  get 'history' => 'user_list_items#history'
+  
   resources :user_list_items
   
 
