@@ -15,17 +15,19 @@ You need to know if you are running a 32-bit or 64-bit version of Windows.  To f
 5. Configure your security (ssh) keys.  At the end of the +Rails+ install, you should see a message that says <tt>your public key has been copied to the clipboard</tt>.  You'll want to paste this into your +GitHub+ account at https://github.com/settings/ssh.  Just choose <tt>Add A Key</tt> and paste it in to the +Key+ field, and give it a title like "My Home PC"  When you paste it in, it should look something like:
 
      ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCmyN17vhmMyLxXlsSKdf0Po2enETp7Op8PAMq/NTQBllDw5I8ke6C76pPDPVeZoI+T7LxbUtUhWbHNNbkJRwYdaqb3CZ+fYWNGzBJACzevZbmXmBeEthox3X+3Al2yrGIud4Iagptqw2aIrE2gDTzkQPmrDLJnn5s05h7HuAOcD5iZ++nOXN9tACrmPRUvRIltQBnaM9xM7hRVALr8FrXjxM5P+ru9IJcgkWWjf263SCU8/+vveyYD8dYrSB3ToVbwtD9kULz3qo08ChqvJfOQErt/JKke/OHedYY28sYJqIzjmJoNd36RxJoni8BfMVpX1cFIlx/bFunuiXYb2CSt Cam Ferroni <cam@ferroni.net>
-  
+
    If it doesn't, then you'll need to do the following.  In the <tt>command window</tt> you'll see a line just above the cursor that says something like:
 
      public_key_location: C:\Users\admin/.ssh/id_rsa.pub
-  
+
    with +admin+ replaced by whatever username you use to log into windows. Type (without the >) into the command line:
 
      > atom C:\Users\_your_username_/.ssh/id_rsa.pub
-  
+
    To load the file into +atom+, and then you should be able to copy all of it and paste it into GitHub.
 
 6. Install <tt>GitHub For Windows</tt> from http://windows.github.com.
 
    Once it is installed, you should be able to enter your credentials for +github+, hit the <tt>+</tt> sign, choose +Clone+, choose +laraferroni/drinkhere+, choose <tt>C:\Sites</tt> to clone it into.
+
+7. Install +ImageMagick+ from http://www.imagemagick.org/download/binaries/ImageMagick-6.9.0-4-Q16-x64-dll.exe

@@ -1,4 +1,4 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
 ruby '2.0.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -69,7 +69,7 @@ end
 #geo
 group :geo, :default do
   gem 'geokit-rails'
-  gem 'tzinfo-data', '~> 1.2014.10', :platforms => [:mingw, :mswin]  
+  gem 'tzinfo-data', '~> 1.2014.10', :platforms => [:mingw, :mswin]
 end
 
 group :files, :default do
